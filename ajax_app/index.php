@@ -27,7 +27,7 @@
                 var name = $("#fullname").val();
                 //alert(name);
                 //alert("I am working");
-                $.post("ajax/ajax.php",{name:name,ajax_name:name},function(feedback){
+                /*$.post("ajax/ajax.php",{name:name,ajax_name:name},function(feedback){
                     console.log(feedback);
                     $(".msg").html(feedback);
                 }).fail(function(error){
@@ -36,6 +36,14 @@
                     console.log(error.responseText);
 
                     alert("There is some error");
+                }); */
+                $.get("ajax/ajax.php",{name:name,ajax_name:name},function(feedback){
+                    console.log(feedback);
+                    $(".msg").html(feedback);
+                }).fail(function(error){
+                    console.log(error);
+                    console.log(error.status);
+                    console.log(error.responseText);
                 });
            });
         });
