@@ -37,14 +37,53 @@
 
                     alert("There is some error");
                 }); */
-                $.get("ajax/ajax.php",{name:name,ajax_name:name},function(feedback){
+                /*$.get("ajax/ajax.php",{name:name,ajax_name:name},function(feedback){
                     console.log(feedback);
                     $(".msg").html(feedback);
                 }).fail(function(error){
                     console.log(error);
                     console.log(error.status);
                     console.log(error.responseText);
-                });
+                });*/
+               /* $.ajax({
+                    url:"ajax/ajax.php",
+                    type:"GET",
+                    dataType:"html",
+                    data:{name:name,ajax_name:name},
+                    beforeSend:function(){
+                        console.log("Request Started");
+                    },
+                    success:function(feedback){
+                        console.log(feedback);
+                        $(".msg").html(feedback);
+                    },
+
+                }).fail(function(error){
+                    console.log(error);
+                    console.log(error.status);
+                    console.log(error.responseText);
+                    $(".msg").html(error.status+" "+error.responseText);
+                }); */
+                $.ajax({
+                    url:"ajax/ajax.php",
+                    type:"POST",
+                    dataType:"html",
+                    data:{name:name,ajax_name:name},
+                    beforeSend:function(){
+                        console.log("Request Started");
+                    },
+                    success:function(feedback){
+                        console.log(feedback);
+                        $(".msg").html(feedback);
+                    },
+
+                }).fail(function(error){
+                    
+                    console.log(error);
+                    console.log(error.status);
+                    console.log(error.responseText);
+                    $(".msg").html(error.status+" "+error.responseText);
+                }); 
            });
         });
     </script>
