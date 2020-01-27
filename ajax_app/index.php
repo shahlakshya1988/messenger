@@ -9,8 +9,14 @@
 <body>
     <div class="container">
         <form action="">
+            <div class="form-group">
+                <input type="text" class="form-control" name="fullname" id="fullname" placeholder="Enter Full Name">
+            </div>
             <button class="btn btn-success" type="button" id="btn">Enter</button>
         </form>
+        <div class="msg">
+            
+        </div>
     </div>
     
     <script src="assets/js/jquery.min.js"></script>    
@@ -18,13 +24,17 @@
     <script>
         $(document).ready(function(){
            $("#btn").click(function(){
+                var name = $("#fullname").val();
+                //alert(name);
                 //alert("I am working");
-                $.post("aja/ajax.php",{},function(feedback){
+                $.post("ajax/ajax.php",{name:name,ajax_name:name},function(feedback){
                     console.log(feedback);
+                    $(".msg").html(feedback);
                 }).fail(function(error){
                     console.clear();
                     console.log(error.status);
                     console.log(error.responseText);
+
                     alert("There is some error");
                 });
            });
