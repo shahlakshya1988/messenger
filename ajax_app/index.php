@@ -19,11 +19,12 @@
         $(document).ready(function(){
            $("#btn").click(function(){
                 //alert("I am working");
-                $.post("ajax/ajax.php",{},function(feedback){
+                $.post("aja/ajax.php",{},function(feedback){
                     console.log(feedback);
                 }).fail(function(error){
                     console.clear();
-                    console.log(error.fail());
+                    console.log(error.status);
+                    console.log(error.responseText);
                     alert("There is some error");
                 });
            });
