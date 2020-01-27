@@ -17,7 +17,16 @@
     <script src="assets/js/bootstrap.bundle.min.js"></script>    
     <script>
         $(document).ready(function(){
-            alert("Jquery Working");
+           $("#btn").click(function(){
+                //alert("I am working");
+                $.post("ajax/ajax.php",{},function(feedback){
+                    console.log(feedback);
+                }).fail(function(error){
+                    console.clear();
+                    console.log(error.fail());
+                    alert("There is some error");
+                });
+           });
         });
     </script>
 </body>
