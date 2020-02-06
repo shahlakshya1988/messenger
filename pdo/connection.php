@@ -7,6 +7,6 @@ $password="";
 
 try{
 	$db = new PDO("mysql:host={$hostname};dbname={$dbname}",$username,$password);
-}catch(Excepction $e){
+}catch(Exception $e){
 	$e->getMessage();
 }
