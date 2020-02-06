@@ -1,6 +1,6 @@
 <?php 
 require_once "connection.php";
-$user_id = 1;
+$user_id = 2;
 $name = "Tanmay Shah";
 $email = "tanmayshah19@example.com";
 $update= $db->prepare("UPDATE `users` SET name = :name,email= :email where `id` = :id");
