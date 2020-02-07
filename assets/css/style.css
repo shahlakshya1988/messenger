@@ -1,9 +1,18 @@
-html,body{
-    font-size:16px;
+*{
+    box-sizing: border-box;
+    margin:0px;
+    padding:0px;
 }
-p.parent{
-    font-size:2rem; // rem is based on root element, em is based on parent element
+.parentClass{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100vh;
+    align-items: flex-start;
+    justify-content: space-between;
 }
-p.child{
-    font-size:4rem;
+div.item{
+    padding:10px;
+    border:1px solid red;
+    width:10%;
 }

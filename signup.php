@@ -10,20 +10,22 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-	<p>
-		First Parent
-		<p class="parent">
-			First Child
-			<p class="child">
-				Second Child 
-				<p>
-					Third Child
-					<p>
-						Fourth Child
-					</p>
-				</p>
-			</p>
-		</p>
-	</p>
+	<div class="parentClass">
+		<div class="item item1"><strong>1</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
+		<div class="item item2"><strong>2</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
+		<div class="item item3"><strong>3</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
+		<div class="item item4"><strong>4</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
+		<div class="item item5"><strong>5</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
+		<div class="item item6"><strong>6</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
+		<div class="item item7"><strong>7</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
+		<div class="item item8"><strong>8</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
+		<div class="item item9"><strong>9</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
+		<div class="item item10"><strong>10</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
+		<div class="item item11"><strong>11</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
+		<div class="item item12"><strong>12</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
+		<div class="item item13"><strong>13</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
+		<div class="item item14"><strong>14</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
+		<div class="item item15"><strong>15</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
+	</div>
 </body>
 </html>
