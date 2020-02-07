@@ -1,23 +1,9 @@
-/*Project Css Goes here*/
-:root{
-    --bgc:red;
-    --box1-bgcolor:green;
-    --box2-bgcolor:black;
-    --box3-bgcolor:blue;
+html,body{
+    font-size:16px;
 }
-body{
-    background-color:var(--bgc);
+p.parent{
+    font-size:2rem; // rem is based on root element, em is based on parent element
 }
-.box{
-    padding:30px;
-    margin:30px;
-}
-.box1{
-    background-color:var(--box1-bgcolor);
-}
-.box2{
-    background-color:var(--box2-bgcolor);
-}
-.box3{
-    background-color:var(--box3-bgcolor);
+p.child{
+    font-size:4rem;
 }
