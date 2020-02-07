@@ -1,1 +1,23 @@
 /*Project Css Goes here*/
+:root{
+    --bgc:red;
+    --box1-bgcolor:green;
+    --box2-bgcolor:black;
+    --box3-bgcolor:blue;
+}
+body{
+    background-color:var(--bgc);
+}
+.box{
+    padding:30px;
+    margin:30px;
+}
+.box1{
+    background-color:var(--box1-bgcolor);
+}
+.box2{
+    background-color:var(--box2-bgcolor);
+}
+.box3{
+    background-color:var(--box3-bgcolor);
+}
