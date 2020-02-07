@@ -13,6 +13,7 @@
 }
 html{
     font-size:10px;
+    font-weight: 400;
 }
 body{
     font-family: 'Poppins', sans-serif;
@@ -26,9 +27,44 @@ body{
 }
 .account-left{
     width:70%;
-    background-color: red;
+    /* background-color: red; */
 }
 .account-right{
     width:30%;
-    background-color:Green;
+    /* background-color:Green; */
+}
+.account-right{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: center;
+}
+.form-area{
+    width:80%;
+}
+.group{
+    margin-bottom:1.5rem;
+}
+.control{
+    width:100%;
+    display: block;
+    padding:1.5rem 1rem;
+    border-radius:3px;
+    border:1px solid var(--color-silver);
+    transition:all 1s linear;
+}
+.control:focus{
+    outline:none;
+    border:1px solid var(--color-green-dark);
+}
+.file{
+    display: none;
+}
+.file-label{
+    display: block;
+    width:100%;
+    padding:1rem 1rem;
+    border:1px solid var(--color-silver);
+    border-radius:3px;
+    font-size:1.2rem;
 }

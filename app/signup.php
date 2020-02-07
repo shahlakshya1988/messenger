@@ -16,7 +16,7 @@
 		</div>
 		<!-- div.account-left -->
 		<div class="account-right">
-			<h1>Account Right</h1>
+			<!-- <h1>Account Right</h1> -->
 			<div class="form-area">
 				<form action="" method="POST" enctype="multipart/form-data">
 					<div class="group">
@@ -32,6 +32,7 @@
 					</div>
 					<!-- div.group -->
 					<div class="group">
+						<label for="img" class="file-label">Upload The Image</label>
 						<input type="file" name="img" id="img" class="file" placeholder="Select Image">
 					</div>
 					<!-- div.group -->
