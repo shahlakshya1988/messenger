@@ -10,22 +10,42 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-	<div class="parentClass">
-		<div class="item item1"><strong>1</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
-		<div class="item item2"><strong>2</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
-		<div class="item item3"><strong>3</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
-		<div class="item item4"><strong>4</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
-		<div class="item item5"><strong>5</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
-		<div class="item item6"><strong>6</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
-		<div class="item item7"><strong>7</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
-		<div class="item item8"><strong>8</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
-		<div class="item item9"><strong>9</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
-		<div class="item item10"><strong>10</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
-		<div class="item item11"><strong>11</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
-		<div class="item item12"><strong>12</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
-		<div class="item item13"><strong>13</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
-		<div class="item item14"><strong>14</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
-		<div class="item item15"><strong>15</strong><br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, numquam!</div>
+	<div class="signup-container">
+		<div class="account-left">
+			<h1>Account Left</h1>
+		</div>
+		<!-- div.account-left -->
+		<div class="account-right">
+			<h1>Account Right</h1>
+			<div class="form-area">
+				<form action="" method="POST" enctype="multipart/form-data">
+					<div class="group">
+						<input type="text" name="full_name" id="full_name" class="control" placeholder="Enter Full Name">
+					</div>
+					<!-- div.group -->
+					<div class="group">
+						<input type="email" name="email" id="email" class="control" placeholder="Enter Email Address">
+					</div>
+					<!-- div.group -->
+					<div class="group">
+						<input type="password" name="password" id="password" class="control" placeholder="Enter Password">
+					</div>
+					<!-- div.group -->
+					<div class="group">
+						<input type="file" name="img" id="img" class="file" placeholder="Select Image">
+					</div>
+					<!-- div.group -->
+					<div class="group">
+						<input type="submit" name="signup" id="signup" class="btn btn-signup" value="Create Account">
+					</div>
+					<!-- div.group -->
+				</form>
+			</div>
+			<!-- div.form-area -->
+		</div>
+		<!-- div.account-right -->
 	</div>
+	<!-- div.signup-container -->
+	<script type="text/javascript" src="assets/js/jquery.min.js"></script>
 </body>
 </html>

@@ -1,18 +1,34 @@
+/* ========================= websites styles  ================ */
 *{
+    margin:0;
+    padding:0;
     box-sizing: border-box;
-    margin:0px;
-    padding:0px;
 }
-.parentClass{
+/* css variables */
+:root{
+    --color-green:#55c57a;
+    --color-green-light:#7ed56f;
+    --color-green-dark:#28b485;
+    --color-silver:#e4e7ea;
+}
+html{
+    font-size:10px;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Signup & Login form */
+.signup-container{
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    height: 100vh;
-    align-items: flex-start;
-    justify-content: space-between;
+    width:100%;
+    height:100vh;
 }
-div.item{
-    padding:10px;
-    border:1px solid red;
-    width:10%;
+.account-left{
+    width:70%;
+    background-color: red;
+}
+.account-right{
+    width:30%;
+    background-color:Green;
 }
