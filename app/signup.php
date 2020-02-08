@@ -32,12 +32,12 @@
 					</div>
 					<!-- div.group -->
 					<div class="group">
-						<label for="img" class="file-label">Upload The Image</label>
-						<input type="file" name="img" id="img" class="file" placeholder="Select Image">
+						<label for="file" class="file-label" id="file-label">Upload The Image</label>
+						<input type="file" name="img" id="file" class="file" placeholder="Select Image">
 					</div>
 					<!-- div.group -->
 					<div class="group">
-						<input type="submit" name="signup" id="signup" class="btn btn-signup" value="Create Account">
+						<input type="submit" name="signup" id="signup" class="btn account-btn" value="Create Account">
 					</div>
 					<!-- div.group -->
 				</form>
@@ -48,5 +48,6 @@
 	</div>
 	<!-- div.signup-container -->
 	<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/formlabel.js"></script>
 </body>
 </html>

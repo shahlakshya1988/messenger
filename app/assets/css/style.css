@@ -10,6 +10,8 @@
     --color-green-light:#7ed56f;
     --color-green-dark:#28b485;
     --color-silver:#e4e7ea;
+    --color-white:#fff;
+    --color-black:#000;
 }
 html{
     font-size:10px;
@@ -67,4 +69,22 @@ body{
     border:1px solid var(--color-silver);
     border-radius:3px;
     font-size:1.2rem;
+    text-align:center;
+}
+#file-label{
+    cursor: pointer;
+}
+.btn{
+    display: inline-block;
+    padding:1.2rem 0.9rem;
+    font-size:1.5rem;
+    border-radius:3px;
+    text-transform: uppercase;
+    border:0px;
+    color:var(--color-white);
+}
+.account-btn{
+    width:100%;
+    border-radius: 3rem;
+    background:linear-gradient(to right,var(--color-green-light),var(--color-green-dark))
 }
