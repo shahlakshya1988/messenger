@@ -154,7 +154,48 @@ nav#nav{
 .messages{
     width:100%;
     height:75vh;
-    background:var(--color-green-light);
+    padding:2rem;
+}
+.left-message{
+    display:flex;
+    width:50%;
+}
+.sender-img-block{
+    width:4rem;
+    height:4rem;
+    border-radius:50%;
+}
+.sender-img{
+    width:4rem;
+    height:4rem;
+    border-radius:50%;
+    display: block;
+}
+.left-msg-area{
+    margin-left:2rem;
+}
+.sender-name{
+    font-weight: 500;
+    font-size:1.1rem;
+    color:var(--color-silver-2);
+    display: inline-block;
+}
+.left-msg{
+    padding:1rem;
+    width:auto;
+    background-image:linear-gradient(to right,var(--color-green-light),var(--color-green-dark));
+    color:var(--color-white);
+    border-top-right-radius:0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius:0.5rem;
+    margin-top:1rem;
+}
+.date-time{
+    margin-left:2rem;
+    display: inline-block;
+}
+.common-margin{
+    margin-top:1.5rem;
 }
 .chat-form{
     height:15vh;
