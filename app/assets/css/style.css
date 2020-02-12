@@ -149,7 +149,7 @@ nav#nav{
 }
 #right-area{
     width:80%;
-    background:yellow;
+    /* background:yellow; */
 }
 .messages{
     width:100%;
@@ -189,6 +189,19 @@ nav#nav{
     border-bottom-right-radius: 0.5rem;
     border-bottom-left-radius:0.5rem;
     margin-top:1rem;
+    position: relative;
+}
+.left-msg::before{
+    content:"";
+    position: absolute;
+    top:0px;
+    left: -0.7rem;
+    width:0px;
+    height:0px;
+    border-top:0.7rem solid var(--color-green-light);
+    border-left:0.7rem solid transparent;
+    border-right:0.7rem solid transparent;
+    border-bottom: 0.7rem solid transparent;
 }
 .date-time{
     margin-left:2rem;
@@ -276,6 +289,29 @@ nav#nav{
 .left-ul li:not(:first-child):hover a{
     color:var(--color-white);
 
+}
+.right-message{
+    display: flex;
+    justify-content: flex-end;
+}
+.right-msg-area{
+    max-width:50%;
+    width:auto;
+}
+.right-msg{
+    padding:1rem;
+    width:auto;
+    background-image:linear-gradient(to left,var(--color-green-light),var(--color-green-dark));
+    color:var(--color-white);
+    border-top-right-radius:0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius:0.5rem;
+    margin-top:1rem;
+    position: relative;
+}
+.right-time{
+    text-align:right;
+    display: block;
 }
 /* =====  Responsive media quires ===== */
 @media(max-width:765px){

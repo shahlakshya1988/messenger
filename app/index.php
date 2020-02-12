@@ -78,6 +78,36 @@
                     <!-- div.left-msg-area -->
                 </div>
                 <!-- div.left-message -->
+                <!-- div.right-message -->
+                <div class="right-message common-margin">
+                    <div class="right-msg-area">
+                        <span class="date-time right-time">
+                            1 Day Ago
+                        </span>
+                        <!-- span.date-time -->
+                        <div class="right-msg">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit necessitatibus ut iste vel eius eligendi optio autem reiciendis. Exercitationem impedit quam voluptatum, quisquam molestiae veritatis ipsum repudiandae explicabo cum asperiores vitae voluptates enim incidunt, culpa officiis tempore, deserunt eius tempora blanditiis sapiente! Velit, unde. Dolores natus nihil excepturi autem assumenda debitis fugiat, molestiae ipsum illo vitae est aliquid dicta repudiandae!</p>
+                        </div>
+                        <!-- div.right-msg -->
+                    </div>
+                    <!-- div.right-msg-area -->
+                </div>
+                <!-- div.right-message -->
+                <!-- div.right-message -->
+                <div class="right-message common-margin">
+                    <div class="right-msg-area">
+                        <span class="date-time right-time">
+                            1 Day Ago
+                        </span>
+                        <!-- span.date-time -->
+                        <div class="right-msg">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit necessitatibus ut iste vel eius eligendi optio autem reiciendis. Exercitationem impedit quam voluptatum, quisquam molestiae veritatis ipsum repudiandae explicabo cum asperiores vitae voluptates enim incidunt, culpa officiis tempore, deserunt eius tempora blanditiis sapiente! Velit, unde. Dolores natus nihil excepturi autem assumenda debitis fugiat, molestiae ipsum illo vitae est aliquid dicta repudiandae!</p>
+                        </div>
+                        <!-- div.right-msg -->
+                    </div>
+                    <!-- div.right-msg-area -->
+                </div>
+                <!-- div.right-message -->
             </div>
             <!-- div.messages -->
             <div class="chat-form">
