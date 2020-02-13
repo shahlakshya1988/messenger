@@ -339,7 +339,7 @@ nav#nav{
 }
 /*** DESIGN CUSTOM SCROLL BAR ***/
 .messages::-webkit-scrollbar{
-    width:1rem;
+    width:0.5rem;
     background:var(--color-silver-3);
 }
 .messages::-webkit-scrollbar-thumb{
@@ -467,13 +467,18 @@ nav#nav{
         width:30%;
     }
     .left-message,.right-message,.right-msg-area,.left-msg-area{
-        width:90%;
-        max-width:90%;
+        width:95%;
+        max-width:95%;
     }
     .emoji-same{
         margin-right:2rem;
     }
     .messages{
         height: 70vh;
+    }
+    ::-webkit-input-placeholder{
+        font-size:0.9rem;
+        font-family: sans-serif;
+        color:black;
     }
 }
