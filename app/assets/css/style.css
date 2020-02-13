@@ -419,6 +419,9 @@ nav#nav{
     width:2rem;
     height: 2rem;
 }
+.emoji-same:hover{
+    cursor: pointer;
+}
 /*** designing emoji ***/
 .form-section{
     padding:3rem;
@@ -480,5 +483,8 @@ nav#nav{
         font-size:0.9rem;
         font-family: sans-serif;
         color:black;
+    }
+    .form-grid{
+        width:100%;
     }
 }
