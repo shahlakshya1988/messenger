@@ -144,10 +144,12 @@ nav#nav{
 
 }
 #sidebar{
-    width:20%;
-    height:90vh;
-    background-color:var(--color-white);
-    box-shadow: 0.8rem 0.6rem -1rem rgba(0,0,0,0.5);
+  width: 20%;
+  height: 90vh;
+  background-color: var(--color-white);
+  box-shadow: .8rem 0 .6rem -1rem rgba(0,0,0,0.5);
+  position: relative;
+
 }
 #right-area{
     width:80%;
@@ -417,6 +419,12 @@ nav#nav{
     height: 2rem;
 }
 /*** designing emoji ***/
+.form-section{
+    padding:3rem;
+}
+.form-grid{
+    width:40%;
+}
 /* =====  Responsive media quires ===== */
 @media(max-width:765px){
     .account-left{
