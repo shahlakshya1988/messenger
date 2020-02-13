@@ -31,6 +31,7 @@
                 <div class="left-message common-margin">
                     <div class="sender-img-block">
                         <img src="assets/img/pro3.jpg" class="sender-img" alt="">
+                        <span class="online-icon"></span>
                     </div>
                     <!-- div.sender-img-block -->
                     <div class="left-msg-area">
@@ -56,6 +57,7 @@
                 <div class="left-message common-margin">
                     <div class="sender-img-block">
                         <img src="assets/img/pro3.jpg" class="sender-img" alt="">
+                        <span class="offline-icon"></span>
                     </div>
                     <!-- div.sender-img-block -->
                     <div class="left-msg-area">

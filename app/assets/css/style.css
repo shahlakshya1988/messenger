@@ -169,6 +169,27 @@ nav#nav{
     width:4rem;
     height:4rem;
     border-radius:50%;
+    position: relative;
+}
+.online-icon{
+    position: absolute;
+    top:0px;
+    right:0px;
+    width:1rem;
+    height:1rem;
+    background:var(--color-green-dark);
+    border-radius:50%;
+    display: block;
+}
+.offline-icon{
+    position: absolute;
+    top:0px;
+    right:0px;
+    width:1rem;
+    height:1rem;
+    background:red;
+    border-radius:50%;
+    display: block;
 }
 .sender-img{
     width:4rem;
@@ -321,6 +342,16 @@ nav#nav{
     text-align:right;
     display: block;
 }
+/*** DESIGN CUSTOM SCROLL BAR ***/
+.messages::-webkit-scrollbar{
+    width:1rem;
+    background:var(--color-silver-3);
+}
+.messages::-webkit-scrollbar-thumb{
+    background-color: #888;
+    border-radius: 1rem;
+}
+/*** DESIGN CUSTOM SCROLL BAR ***/
 /* =====  Responsive media quires ===== */
 @media(max-width:765px){
     .account-left{
