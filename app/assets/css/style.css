@@ -171,25 +171,22 @@ nav#nav{
     border-radius:50%;
     position: relative;
 }
-.online-icon{
+.online-icon,.offline-icon{
     position: absolute;
     top:0px;
     right:0px;
-    width:1rem;
-    height:1rem;
-    background:var(--color-green-dark);
+    width:1.2rem;
+    height:1.2rem;
     border-radius:50%;
     display: block;
 }
-.offline-icon{
-    position: absolute;
-    top:0px;
-    right:0px;
-    width:1rem;
-    height:1rem;
-    background:red;
-    border-radius:50%;
-    display: block;
+.online-icon{    
+    background:var(--color-green-dark);
+    border:2px solid var(--color-white);
+}
+.offline-icon{  
+    background:red;   
+    border:2px solid var(--color-white);
 }
 .sender-img{
     width:4rem;
@@ -216,7 +213,7 @@ nav#nav{
     border-bottom-left-radius:0.5rem;
     margin-top:1rem;
     position: relative;
-    font-size:1.1rem;
+    font-size:1.2rem;
 }
 .left-msg::before{
     content:"";
@@ -331,7 +328,7 @@ nav#nav{
     border-bottom-left-radius:0.5rem;
     margin-top:1rem;
     position: relative;
-    font-size:1.1rem;
+    font-size:1.2rem;
 }
 .right-time{
     text-align:right;
@@ -407,6 +404,19 @@ nav#nav{
     letter-spacing: 2px;
 }
 /**** DESIGNING CHAT FORM ****/
+/*** designing emoji ***/
+.emoji{
+    height: 5vh;
+    width:100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+}
+.emoji-same{
+    width:2rem;
+    height: 2rem;
+}
+/*** designing emoji ***/
 /* =====  Responsive media quires ===== */
 @media(max-width:765px){
     .account-left{
