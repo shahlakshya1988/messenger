@@ -439,6 +439,9 @@ nav#nav{
     float:right;
 
 }
+.custom-bars:hover{
+    cursor: pointer;
+}
 @media (max-width: 765px) {
 
     .account-left{
@@ -450,7 +453,7 @@ nav#nav{
     .bars{
         display: block;
     }
-    .chat-container{
+    .chat-container,.emoji{
         flex-wrap: wrap;
     }
     #sidebar{
@@ -463,8 +466,14 @@ nav#nav{
     #sidebar::before{
         width:30%;
     }
-    .left-message,.right-message,.right-msg-area{
-        width:100%;
-        max-width:100%;
+    .left-message,.right-message,.right-msg-area,.left-msg-area{
+        width:90%;
+        max-width:90%;
+    }
+    .emoji-same{
+        margin-right:2rem;
+    }
+    .messages{
+        height: 70vh;
     }
 }
