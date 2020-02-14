@@ -1,12 +1,14 @@
-<?php require_once __DIR__.DIRECTORY_SEPARATOR."init.php"; ?>
+<?php require_once __DIR__ . DIRECTORY_SEPARATOR . "init.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
 	<title>User Login</title>
 	<?php include "components/css.php"; ?>
 </head>
+
 <body>
 	<div class="signup-container">
 		<div class="account-left">
@@ -19,7 +21,7 @@
 		<!-- div.account-left -->
 		<div class="account-right">
 			<!-- <h1>Account Right</h1> -->
-			<?php include "compontents/login_form.php"; ?>
+			<?php include "components/login_form.php"; ?>
 			<!-- div.form-area -->
 		</div>
 		<!-- div.account-right -->
@@ -27,4 +29,5 @@
 	<!-- div.signup-container -->
 	<?php include "components/js.php"; ?>
 </body>
+
 </html>

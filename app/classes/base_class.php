@@ -29,4 +29,8 @@ class base_class extends db
     {
         return trim(strip_tags($data)); // remove all the html 
     }
+    public function createSession($session_name, $session_value)
+    {
+        $_SESSION[$session_name] = $session_value;
+    }
 }

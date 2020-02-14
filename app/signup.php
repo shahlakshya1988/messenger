@@ -76,6 +76,9 @@ if (isset($_POST["signup"])) {
 		$query = $obj->normalQuery($query, $param);
 		//var_dump();
 		if ($obj->countRows()) {
+			$obj->createSession("account_success", "Your Account Is Successfully Created");
+			header("Location: login.php");
+			die();
 		}
 	}
 }
