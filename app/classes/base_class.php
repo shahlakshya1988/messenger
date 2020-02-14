@@ -29,6 +29,9 @@ class base_class extends db
     {
         return trim(strip_tags($data)); // remove all the html 
     }
+    public function fetch_single(){
+        return $this->query->fetch(PDO::FETCH_OBJ);
+    }
     public function createSession($session_name, $session_value)
     {
         $_SESSION[$session_name] = $session_value;

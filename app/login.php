@@ -22,9 +22,14 @@ if(isset($_POST["login"])){
 		$query = $obj->normalQuery($query,$param);
 		if($obj->countRows()){
 			//echo "User Exists";
-			$result = $obj->fetch_all()[0];
+			// $result = $obj->fetch_all()[0];
+			$result = $obj->fetch_single();
 			if(password_verify($password,$result->password)){
-				//var_dump($result);
+				// var_dump($result);
+				$obj->createSession("user_name",$result->name);
+				$obj->createSession("user_id",$result->id);
+				header("Location: index.php");
+				die();
 			}else{
 				$login_error="Enter Email/Password Not Found.<br><a href='signup.php'>Signup To Create Account</a>";
 				//var_dump($login_error);

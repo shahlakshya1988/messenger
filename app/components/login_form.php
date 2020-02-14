@@ -12,12 +12,15 @@
 			</div>
 			<!-- div.group -->
 		<?php } unset($_SESSION["account_success"]); ?>
-		<div class="group">
-			<div class="alert alert-danger">
-				<?= $login_error;?>
+		<?php if(isset($login_error)){ ?>
+			<div class="group">
+				<div class="alert alert-danger">
+					<?= $login_error;?>
+				</div>
 			</div>
-		</div>
-		<!-- div.group -->
+			<!-- div.group -->
+		<?php } ?>
+		
 		<div class="group">
 			<input type="email" name="email" id="email" class="control" placeholder="Enter Email Address">
 			<?php if(isset($email_error)){ ?>
