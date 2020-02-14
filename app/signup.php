@@ -69,9 +69,14 @@ if (isset($_POST["signup"])) {
 		}
 	}
 	if($name_status == 1 && $email_status == 1 && $img_status == 1){
+		$password_hash = password_hash($password,PASSWORD_DEFAULT);
 		$query = "INSERT INTO `users` (`id`,`name`,`email`,`password`,`image`,`status`) value (NULL,:name,:email,:password,:image,0)";
-		$param = array(":name"=>$full_name,":email"=>$email,":password"=>$password,":image"=>$new_image_name);
+		$param = array(":name"=>$full_name,":email"=>$email,":password"=>$password_hash,":image"=>$new_image_name);
 		$query = $obj->normalQuery($query,$param);
+		//var_dump();
+		if($obj->countRows()){
+
+		}
 	}
 }
 ?>
