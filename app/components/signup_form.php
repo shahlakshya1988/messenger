@@ -34,6 +34,11 @@
 		<div class="group">
 			<label for="file" class="file-label" id="file-label"> <i class="fas fa-cloud-upload-alt upload-icon"></i> Upload The Image</label>
 			<input type="file" name="img" id="file" class="file" placeholder="Select Image">
+			<div class="image-error error">
+				<?php if(isset($image_error) && !empty(trim($image_error))){ ?>
+					<?=$image_error; ?>
+				<?php } ?>
+			</div>
 		</div>
 		<!-- div.group -->
 		<div class="group">
