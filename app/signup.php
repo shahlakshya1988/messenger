@@ -39,7 +39,7 @@ if (isset($_POST["signup"])) {
 		<!-- div.account-left -->
 		<div class="account-right">
 			<!-- <h1>Account Right</h1> -->
-			<?php include "components/signup.php"; ?>
+			<?php include "components/signup_form.php"; ?>
 			<!-- div.form-area -->
 		</div>
 		<!-- div.account-right -->

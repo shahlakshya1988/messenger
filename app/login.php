@@ -19,7 +19,7 @@
 		<!-- div.account-left -->
 		<div class="account-right">
 			<!-- <h1>Account Right</h1> -->
-			<?php include "compontents/login.php"; ?>
+			<?php include "compontents/login_form.php"; ?>
 			<!-- div.form-area -->
 		</div>
 		<!-- div.account-right -->
