@@ -36,6 +36,11 @@ if (isset($_POST["signup"])) {
 	if (empty(trim($password))) {
 		$password_error = "Password is required";
 		$password_status = 0;
+	}else{
+		if(strlen($password) < 5){
+			$password_error = "Password is should be of min. 6 alphabet";
+			$password_status = 0;
+		}
 	}
 }
 ?>

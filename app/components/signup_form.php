@@ -24,9 +24,11 @@
 		<!-- div.group -->
 		<div class="group">
 			<input type="password" name="password" id="password" class="control" placeholder="Enter Password">
-			<?php if(isset($password_error) && !empty(trim($password_error))){ ?>
-				<?=$password_error; ?>
-			<?php } ?>
+			<div class="password-error error">
+				<?php if(isset($password_error) && !empty(trim($password_error))){ ?>
+					<?=$password_error; ?>
+				<?php } ?>
+			</div>
 		</div>
 		<!-- div.group -->
 		<div class="group">
