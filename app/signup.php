@@ -12,12 +12,12 @@ if (isset($_POST["signup"])) {
 	$image_error = $image["error"];
 	$image_size = $image["size"];
 	$image_type = $image["type"];
-	$image_name_array = explode(".",$image_name);
+	$image_name_array = explode(".", $image_name);
 	$image_extension = end($image_name_array);
-	$allowed_extensions = array("jpg","jpeg","png","gif");
-	$allowed_type = array("image/gif","image/jpeg","image/png","image/jpeg");
-	$new_image_name = uniqid(true).".".$image_extension;
-	$img_path = "assets".DIRECTORY_SEPARATOR."img".DIRECTORY_SEPARATOR.$new_image_name;
+	$allowed_extensions = array("jpg", "jpeg", "png", "gif");
+	$allowed_type = array("image/gif", "image/jpeg", "image/png", "image/jpeg");
+	$new_image_name = uniqid(true) . "." . $image_extension;
+	$img_path = "assets" . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . $new_image_name;
 	//var_dump($image_type);
 	//var_dump($img_path);
 	$name_status = $email_status = $password_status = $img_status = 1; // 1 means every thing ok
@@ -28,16 +28,16 @@ if (isset($_POST["signup"])) {
 	if (empty(trim($email))) {
 		$email_error = "Email is required";
 		$email_status = 0;
-	}else{
-		if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+	} else {
+		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 			$email_error = "Please Enter Email In Proper Format example@example.com";
 			$email_status = 0;
-		}else{
+		} else {
 			$query = "SELECT * FROM `users` where `email` = :email";
-			$param = [":email"=>$email];
+			$param = [":email" => $email];
 			$obj = new base_class();
-			$query = $obj->normalQuery($query,$param);
-			if($obj->countRows()){
+			$query = $obj->normalQuery($query, $param);
+			if ($obj->countRows()) {
 				$email_error = "Email, {$email} Already In Use";
 				$email_status = 0;
 			}
@@ -46,30 +46,28 @@ if (isset($_POST["signup"])) {
 	if (empty(trim($password))) {
 		$password_error = "Password is required";
 		$password_status = 0;
-	}else{
-		if(strlen($password) < 5){
+	} else {
+		if (strlen($password) < 5) {
 			$password_error = "Password is should be of min. 6 alphabet";
 			$password_status = 0;
 		}
 	}
 
-	if(empty(trim($image_name)) || $image_error == 4){
+	if (empty(trim($image_name)) || $image_error == 4) {
 		$image_error = "Please Upload Your Image";
 		$img_status = 0;
-	}else if(!in_array($image_extension,$allowed_extensions)){
+	} else if (!in_array($image_extension, $allowed_extensions)) {
 		$image_error = "Please Upload Your Image In .jpg,.png or .gif Format";
 		$img_status = 0;
-	}else if(!in_array($image_extension,$allowed_extensions)){
+	} else if (!in_array($image_extension, $allowed_extensions)) {
 		$image_error = "Please Upload Your Image In .jpg,.png or .gif Format";
 		$img_status = 0;
-	}else{
-		if(!move_uploaded_file($image_tmp_name,$new_image_name)){
+	} else {
+		if (!move_uploaded_file($image_tmp_name, $new_image_name)) {
 			$image_error = "Operational Error !!!";
 			$img_status = 0;
 		}
 	}
-
-
 }
 ?>
 <!DOCTYPE html>
