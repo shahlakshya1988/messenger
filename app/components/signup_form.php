@@ -15,10 +15,18 @@
 		<!-- div.group -->
 		<div class="group">
 			<input type="email" name="email" id="email" class="control" placeholder="Enter Email Address">
+			<div class="email-error error">
+				<?php if(isset($email_error) && !empty(trim($email_error))){ ?>
+					<?=$email_error; ?>
+				<?php } ?>
+			</div>
 		</div>
 		<!-- div.group -->
 		<div class="group">
 			<input type="password" name="password" id="password" class="control" placeholder="Enter Password">
+			<?php if(isset($password_error) && !empty(trim($password_error))){ ?>
+				<?=$password_error; ?>
+			<?php } ?>
 		</div>
 		<!-- div.group -->
 		<div class="group">

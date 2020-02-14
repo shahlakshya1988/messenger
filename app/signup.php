@@ -15,6 +15,28 @@ if (isset($_POST["signup"])) {
 		$name_error = "Full Name is required";
 		$name_status = 0;
 	}
+	if (empty(trim($email))) {
+		$email_error = "Email is required";
+		$email_status = 0;
+	}else{
+		if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+			$email_error = "Please Enter Email In Proper Format example@example.com";
+			$email_status = 0;
+		}else{
+			$query = "SELECT * FROM `users` where `email` = :email";
+			$param = [":email"=>$email];
+			$obj = new base_class();
+			$query = $obj->normalQuery($query,$param);
+			if($obj->countRows()){
+				$email_error = "Email, {$email} Already In Use";
+				$email_status = 0;
+			}
+		}
+	}
+	if (empty(trim($password))) {
+		$password_error = "Password is required";
+		$password_status = 0;
+	}
 }
 ?>
 <!DOCTYPE html>
