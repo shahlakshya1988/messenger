@@ -1,4 +1,40 @@
 <?php require_once __DIR__ . DIRECTORY_SEPARATOR . "init.php"; ?>
+<?php
+$obj = new base_class(); 
+if(isset($_POST["login"])){
+	$email = $obj->security($_POST["email"]);
+	$password = $obj->security($_POST["password"]);
+	$email_status = $password_status = 1;
+	if(empty(trim($email))){
+		$email_error = "Enter Email Address";
+		$email_status = 0;
+	}elseif(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+		$email_error = "Enter Proper Email Address";
+		$email_status = 0;
+	}
+	if(empty(trim($password))){
+		$password_error = "Enter Password Address";
+		$password_status = 0;
+	}
+	if($email_status == 1 && $password_status == 1){
+		$query = "SELECT * FROM `users` where `email` = :email ";
+		$param = [":email"=>$email];
+		$query = $obj->normalQuery($query,$param);
+		if($obj->countRows()){
+			//echo "User Exists";
+			$result = $obj->fetch_all()[0];
+			if(password_verify($password,$result->password)){
+				//var_dump($result);
+			}else{
+				$login_error="Enter Email/Password Not Found.<br><a href='signup.php'>Signup To Create Account</a>";
+				//var_dump($login_error);
+			}
+			
+		}
+	}
+	
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

@@ -13,11 +13,27 @@
 			<!-- div.group -->
 		<?php } unset($_SESSION["account_success"]); ?>
 		<div class="group">
+			<div class="alert alert-danger">
+				<?= $login_error;?>
+			</div>
+		</div>
+		<!-- div.group -->
+		<div class="group">
 			<input type="email" name="email" id="email" class="control" placeholder="Enter Email Address">
+			<?php if(isset($email_error)){ ?>
+				<div class="email-error error">
+					<?= $email_error; ?>
+				</div>
+			<?php } ?>
 		</div>
 		<!-- div.group -->
 		<div class="group">
 			<input type="password" name="password" id="password" class="control" placeholder="Enter Password">
+			<?php if(isset($password_error)){ ?>
+				<div class="password-error error">
+					<?= $password_error; ?>
+				</div>
+			<?php } ?>
 		</div>
 		<!-- div.group -->
 

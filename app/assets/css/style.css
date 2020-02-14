@@ -541,9 +541,18 @@ nav#nav {
     padding-top:1rem;
     padding-bottom:1rem;
     text-align: center;
+    font-size: 1.5rem;
+}
+.alert a{
+    color:#fff;
+    text-decoration: underline;
 }
 .alert-success{
     background-color:var(--color-green);
+    color:#fff;
+}
+.alert-danger{
+    background-color:red;
     color:#fff;
 }
 /***** ==== alert desing ==== ****/

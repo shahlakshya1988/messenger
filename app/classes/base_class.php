@@ -23,7 +23,7 @@ class base_class extends db
 
     public function fetch_all()
     {
-        return $this->obj->fetchAll(PDO::FETCH_OBJ);
+        return $this->query->fetchAll(PDO::FETCH_OBJ);
     }
     public function security($data)
     {
