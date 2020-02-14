@@ -1,12 +1,32 @@
-<?php require_once __DIR__.DIRECTORY_SEPARATOR."init.php"; ?>
+<?php require_once __DIR__ . DIRECTORY_SEPARATOR . "init.php"; ?>
+<?php
+if (isset($_POST["signup"])) {
+	$full_name = $_POST["full_name"];
+	$email = $_POST["email"];
+	$password = $_POST["password"];
+
+	$image = $_FILES["img"];
+	$image_name = $image["name"];
+	$image_tmp_name = $image["tmp_name"];
+	$image_error = $image["error"];
+	$image_size = $image["size"];
+	$name_status = $email_status = $password_status = $img_status = 1; // 1 means every thing ok
+	if (empty(trim($full_name))) {
+		$name_error = "Full Name is required";
+		$name_status = 0;
+	}
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
 	<title>Create New Account</title>
 	<?php include "components/css.php"; ?>
 </head>
+
 <body>
 	<div class="signup-container">
 		<div class="account-left">
@@ -28,4 +48,5 @@
 	<?php include "components/js.php"; ?>
 	<script type="text/javascript" src="assets/js/formlabel.js"></script>
 </body>
+
 </html>
