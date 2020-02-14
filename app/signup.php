@@ -1,4 +1,4 @@
-<?php require_once __DIR__ . DIRECTORY_SEPARATOR . "init.php"; ?>
+<?php require_once __DIR__ . DIRECTORY_SEPARATOR . "init.php"; $obj = new base_class(); ?>
 <?php
 if (isset($_POST["signup"])) {
 	$full_name = $_POST["full_name"];
@@ -16,7 +16,7 @@ if (isset($_POST["signup"])) {
 	$image_extension = end($image_name_array);
 	$allowed_extensions = array("jpg", "jpeg", "png", "gif");
 	$allowed_type = array("image/gif", "image/jpeg", "image/png", "image/jpeg");
-	$new_image_name = uniqid(true) . "." . $image_extension;
+	$new_image_name = uniqid("",true) . "." . $image_extension;
 	$img_path = "assets" . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . $new_image_name;
 	//var_dump($image_type);
 	//var_dump($img_path);
@@ -35,7 +35,7 @@ if (isset($_POST["signup"])) {
 		} else {
 			$query = "SELECT * FROM `users` where `email` = :email";
 			$param = [":email" => $email];
-			$obj = new base_class();
+			
 			$query = $obj->normalQuery($query, $param);
 			if ($obj->countRows()) {
 				$email_error = "Email, {$email} Already In Use";
@@ -59,14 +59,19 @@ if (isset($_POST["signup"])) {
 	} else if (!in_array($image_extension, $allowed_extensions)) {
 		$image_error = "Please Upload Your Image In .jpg,.png or .gif Format";
 		$img_status = 0;
-	} else if (!in_array($image_extension, $allowed_extensions)) {
+	} else if (!in_array($image_type, $allowed_type)) {
 		$image_error = "Please Upload Your Image In .jpg,.png or .gif Format";
 		$img_status = 0;
 	} else {
-		if (!move_uploaded_file($image_tmp_name, $new_image_name)) {
+		if (!move_uploaded_file($image_tmp_name, $img_path)) {
 			$image_error = "Operational Error !!!";
 			$img_status = 0;
 		}
+	}
+	if($name_status == 1 && $email_status == 1 && $img_status == 1){
+		$query = "INSERT INTO `users` (`id`,`name`,`email`,`password`,`image`,`status`) value (NULL,:name,:email,:password,:image,0)";
+		$param = array(":name"=>$full_name,":email"=>$email,":password"=>$password,":image"=>$new_image_name);
+		$query = $obj->normalQuery($query,$param);
 	}
 }
 ?>
