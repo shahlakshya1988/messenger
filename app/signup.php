@@ -1,9 +1,10 @@
-<?php require_once __DIR__ . DIRECTORY_SEPARATOR . "init.php"; $obj = new base_class(); ?>
+<?php require_once __DIR__ . DIRECTORY_SEPARATOR . "init.php";
+$obj = new base_class(); ?>
 <?php
 if (isset($_POST["signup"])) {
-	$full_name = $_POST["full_name"];
-	$email = $_POST["email"];
-	$password = $_POST["password"];
+	$full_name = $obj->security($_POST["full_name"]);
+	$email = $obj->security($_POST["email"]);
+	$password = $obj->security($_POST["password"]);
 
 	$image = $_FILES["img"];
 	//var_dump($image);
@@ -16,7 +17,7 @@ if (isset($_POST["signup"])) {
 	$image_extension = end($image_name_array);
 	$allowed_extensions = array("jpg", "jpeg", "png", "gif");
 	$allowed_type = array("image/gif", "image/jpeg", "image/png", "image/jpeg");
-	$new_image_name = uniqid("",true) . "." . $image_extension;
+	$new_image_name = uniqid("", true) . "." . $image_extension;
 	$img_path = "assets" . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . $new_image_name;
 	//var_dump($image_type);
 	//var_dump($img_path);
@@ -35,7 +36,7 @@ if (isset($_POST["signup"])) {
 		} else {
 			$query = "SELECT * FROM `users` where `email` = :email";
 			$param = [":email" => $email];
-			
+
 			$query = $obj->normalQuery($query, $param);
 			if ($obj->countRows()) {
 				$email_error = "Email, {$email} Already In Use";
@@ -68,14 +69,13 @@ if (isset($_POST["signup"])) {
 			$img_status = 0;
 		}
 	}
-	if($name_status == 1 && $email_status == 1 && $img_status == 1){
-		$password_hash = password_hash($password,PASSWORD_DEFAULT);
+	if ($name_status == 1 && $email_status == 1 && $img_status == 1) {
+		$password_hash = password_hash($password, PASSWORD_DEFAULT);
 		$query = "INSERT INTO `users` (`id`,`name`,`email`,`password`,`image`,`status`) value (NULL,:name,:email,:password,:image,0)";
-		$param = array(":name"=>$full_name,":email"=>$email,":password"=>$password_hash,":image"=>$new_image_name);
-		$query = $obj->normalQuery($query,$param);
+		$param = array(":name" => $full_name, ":email" => $email, ":password" => $password_hash, ":image" => $new_image_name);
+		$query = $obj->normalQuery($query, $param);
 		//var_dump();
-		if($obj->countRows()){
-
+		if ($obj->countRows()) {
 		}
 	}
 }
