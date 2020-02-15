@@ -28,6 +28,7 @@ if(isset($_POST["login"])){
 				// var_dump($result);
 				$obj->createSession("user_name",$result->name);
 				$obj->createSession("user_id",$result->id);
+				$obj->createSession("user_image",$result->image);
 				header("Location: index.php");
 				die();
 			}else{
