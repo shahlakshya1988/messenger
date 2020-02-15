@@ -25,6 +25,18 @@ if(!isset($_SESSION["user_name"]) && !isset($_SESSION["user_id"])){
     <!-- div.flash-body -->
 </div>
 <!-- div.flash -->
+<div class="flash error-flash">
+    <span class="remove">&times;</span>
+    <div class="flash-heading">
+        <h3> <span class="checked">&#x2715;</span> Error: You Have Done!!!</h3>
+    </div>
+    <!-- div.flash-heading -->
+    <div class="flash-body">
+        <p>Your Password Has Been Successfully Updated</p>
+    </div>
+    <!-- div.flash-body -->
+</div>
+<!-- div.flash -->
     <?php include "components/nav.php"; ?>
     <div class="chat-container">
         <?php include "components/sidebar.php"; ?>

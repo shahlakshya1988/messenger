@@ -18,6 +18,7 @@
     --color-silver-2: #54667a;
     --color-silver-3: #f1f1f4;
     --color-silver-4: #999;
+    --color-red:#cd5c5c;
 }
 
 html {
@@ -574,6 +575,9 @@ nav#nav {
 .success-flash{
     color:var(--color-green-dark);
 }
+.error-flash{
+    color:var(--color-red);
+}
 .flash-heading{
     font-size:1.4rem;
     font-weight: 300;
@@ -589,6 +593,9 @@ nav#nav {
     justify-content: center;
     align-items: center;
     margin-right:1rem;
+}
+.error-flash .checked{
+    border:1px solid var(--color-red);
 }
 .flash-body p{
     margin-top:0.5rem;
@@ -648,3 +655,42 @@ nav#nav {
         width: 100%;
     }
 }
+@media(max-width:480px){
+    .flash{
+        width:80%;
+    }
+    .flash-heading {
+        font-size: 1.2rem;
+    }
+    .checked {
+        width: 2rem;
+        height: 2rem;
+    }
+}
+@media(max-width:363px){
+    .checked {
+        width:3rem;
+        height:3rem;
+        margin-right:auto;
+        margin-left:auto;
+        display:flex;
+    }
+    .flash-heading{
+        text-align:center;
+    }
+    .flash-body{
+        margin-left:0px;
+        margin-right:0px;
+        padding-left:0.5rem;
+        padding-right:0.5rem;
+        text-align:center;
+    }
+    .flash-body p{
+        margin-left:0px;
+        margin-right:0px;
+        padding-left:0.5rem;
+        padding-right:0.5rem;
+    }
+}
+    
+    
