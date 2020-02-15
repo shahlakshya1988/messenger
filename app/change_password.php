@@ -39,11 +39,14 @@ if(isset($_POST["change_password"])){
     $resultSingle = $obj->fetch_single();
     //var_dump($resultSingle);
    if($current_password_status ==1 && $new_password_status ==1 && $retype_password_status == 1){
+       //var_dump(password_verify($current_password,$resultSingle->password));
         if(password_verify($current_password,$resultSingle->password)){
             $hashed_password = password_hash($new_password,PASSWORD_DEFAULT);
-            $update_user = "UDPATE `user` SET `password` = :password where `id` = :id LIMIT 1";
-            $param = array(":password"=>$password,":id"=>$user_id);
+           // var_dump($hashed_password);
+            $update_user = "UPDATE `users` SET `password` = :password where `id` = :id LIMIT 1";
+            $param = array(":password"=>$hashed_password,":id"=>$user_id);
             $query = $obj->normalQuery($update_user,$param);
+           // var_dump($query);
             var_dump($obj->countRows());
         }else{
             // wrong previous password 
@@ -51,6 +54,7 @@ if(isset($_POST["change_password"])){
             $current_password_error = "Current Password Is Wrong";
         }
    }
+   //die();
 }
 ?>
 <!DOCTYPE html>
