@@ -13,6 +13,20 @@ if(!isset($_SESSION["user_name"]) && !isset($_SESSION["user_id"])){
 	<?php include "components/css.php"; ?>
 </head>
 <body>
+<?php if(isset($_SESSION["user_name_update_success"])){ ?>
+    <div class="flash success-flash">
+    <span class="remove">&times;</span>
+    <div class="flash-heading">
+        <h3> <span class="checked">&#10004</span> Success: You Have Done!!!</h3>
+    </div>
+    <!-- div.flash-heading -->
+    <div class="flash-body">
+        <p><?= $_SESSION["user_name_update_success"]; ?></p>
+    </div>
+    <!-- div.flash-body -->
+</div>
+<!-- div.flash -->
+<?php } unset($_SESSION["user_name_update_success"]); ?>
 <?php if(isset($_SESSION["password_updated"])){ ?>
     <div class="flash success-flash">
     <span class="remove">&times;</span>
