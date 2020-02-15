@@ -6,9 +6,9 @@
         });
     });
     $(document).on("click",".remove",function(){
-        $(".flash").fadeOut('medium');
+        $(".flash").fadeOut('slow');
     });
     setTimeout(function(){
-        $(".flash").fadeOut('medium');
+        $(".flash").fadeOut('slow');
     },5000);
 </script>

@@ -47,7 +47,10 @@ if(isset($_POST["change_password"])){
             $param = array(":password"=>$hashed_password,":id"=>$user_id);
             $query = $obj->normalQuery($update_user,$param);
            // var_dump($query);
-            var_dump($obj->countRows());
+            //var_dump($obj->countRows());
+            $obj->createSession("password_updated","Your Password Is Successfully Updated");
+            header("Location: index.php");
+            die();
         }else{
             // wrong previous password 
             $current_password_status = 0;
