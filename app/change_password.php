@@ -3,6 +3,55 @@ if(!isset($_SESSION["user_name"]) && !isset($_SESSION["user_id"])){
     header("Location: login.php");
     die();
 }
+$obj = new base_class();
+if(isset($_POST["change_password"])){
+    $current_password =  $obj->security($_POST["current_password"]);
+    $new_password =  $obj->security($_POST["new_password"]);
+    $retype_new_password =  $obj->security($_POST["retype_new_password"]);
+    $current_password_status = $new_password_status = $retype_password_status = 1;
+    if(empty(trim($current_password))){
+        $current_password_status = 0;
+        $current_password_error = "Current Password Is Required";
+    }
+    if(empty(trim($new_password))){
+        $new_password_status = 0;
+        $new_password_error = "New Password Is Required";
+    }
+    if(empty(trim($new_password))){
+        $retype_password_status = 0;
+        $retype_password_error = "Retype Password Is Required";
+    }
+    if(strlen($new_password)<6){
+        $new_password_status = 0;
+        $new_password_error = "New Password Should Not Be Less Than 6 Chars";
+    }
+    if($new_password != $retype_new_password){
+        // both the password are different
+        $new_password_status = 0;
+        $new_password_error = "New Password Does Not Match With Retype Password";
+        $retype_password_status = 0;
+        $retype_password_error = "Retype Password Does Not Match With New Password";
+    }
+    $user_id = $_SESSION["user_id"];
+    $query = "SELECT * FROM `users` where `id` = :id";
+    $param = array(":id"=>$user_id);
+    $result = $obj->normalQuery($query,$param);
+    $resultSingle = $obj->fetch_single();
+    //var_dump($resultSingle);
+   if($current_password_status ==1 && $new_password_status ==1 && $retype_password_status == 1){
+        if(password_verify($current_password,$resultSingle->password)){
+            $hashed_password = password_hash($new_password,PASSWORD_DEFAULT);
+            $update_user = "UDPATE `user` SET `password` = :password where `id` = :id LIMIT 1";
+            $param = array(":password"=>$password,":id"=>$user_id);
+            $query = $obj->normalQuery($update_user,$param);
+            var_dump($obj->countRows());
+        }else{
+            // wrong previous password 
+            $current_password_status = 0;
+            $current_password_error = "Current Password Is Wrong";
+        }
+   }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,39 +67,7 @@ if(!isset($_SESSION["user_name"]) && !isset($_SESSION["user_id"])){
         <?php include "components/sidebar.php"; ?>
         <!-- section#sidebar -->
         <section id="right-area">
-            <div class="form-section">
-                <div class="form-grid">
-                    <div class="form-area">
-                        <form action="" method="POST" enctype="multipart/form-data">
-                            <div class="group">
-                                <h2 class="form-heading">Update Password</h2>
-                            </div>
-                            <!-- div.group -->
-                            
-                            <div class="group">
-                                <input type="password" name="current_password" id="current_password" class="control" placeholder="Enter Current Password">
-                            </div>
-                            <!-- div.group -->
-                            <div class="group">
-                                <input type="password" name="new_password" id="new_password" class="control" placeholder="Enter New Password">
-                            </div>
-                            <!-- div.group -->
-                            <div class="group">
-                                <input type="password" name="retype_new_password" id="retype_new_password" class="control" placeholder="Retype New Password">
-                            </div>
-                            <!-- div.group -->
-                            <div class="group">
-                                <input type="submit" name="change_password" id="change_password" class="btn account-btn" value="Save Changes">
-                            </div>
-                            <!-- div.group -->
-                            
-                        </form>
-                    </div>
-                    <!-- div.form-area -->
-                </div>
-                <!-- div.form-grid -->
-            </div>
-            <!-- div.form-section -->
+            <?php include "components".DIRECTORY_SEPARATOR."change_password_form.php" ?>
         </section>
         <!-- section#right-area -->
     </div>

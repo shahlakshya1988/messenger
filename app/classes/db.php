@@ -9,8 +9,8 @@ class db{
     public function __construct(){
         try{
             $this->con = new PDO("mysql:host=$this->host;dbname={$this->dbname}",$this->username,$this->password);
-        }catch(Exception $e){
-            var_dump($e->errorInfo());
+        }catch(PDOException $e){
+            var_dump($e->getMessage());
             die();
         }
     }
