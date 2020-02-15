@@ -5,4 +5,10 @@
             $("#sidebar").slideToggle();
         });
     });
+    $(document).on("click",".remove",function(){
+        $(".flash").fadeOut('medium');
+    });
+    setTimeout(function(){
+        $(".flash").fadeOut('medium');
+    },5000);
 </script>
