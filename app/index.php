@@ -41,7 +41,20 @@ if(!isset($_SESSION["user_name"]) && !isset($_SESSION["user_id"])){
 </div>
 <!-- div.flash -->
 <?php } unset($_SESSION["password_updated"]); ?>
-
+<?php if(isset($_SESSION["image_updated"])){ ?>
+    <div class="flash success-flash">
+    <span class="remove">&times;</span>
+    <div class="flash-heading">
+        <h3> <span class="checked">&#10004</span> Success: You Have Done!!!</h3>
+    </div>
+    <!-- div.flash-heading -->
+    <div class="flash-body">
+        <p><?= $_SESSION["image_updated"]; ?></p>
+    </div>
+    <!-- div.flash-body -->
+</div>
+<!-- div.flash -->
+<?php } unset($_SESSION["image_updated"]); ?>
 
 <div class="flash error-flash" style="display:none;">
     <span class="remove">&times;</span>

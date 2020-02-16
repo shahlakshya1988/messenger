@@ -9,6 +9,11 @@
                 <div class="group">
                     <label for="change-image" id="change-image-label"></label>
                     <input type="file" name="change-image" id="change-image" class="change-image">
+                    <?php if(isset($image_error)){ ?>
+                        <div class="image-error error">
+                            <?=$image_error;?>
+                        </div>
+                    <?php } ?>
                 </div>
                 <!-- div.group -->
 

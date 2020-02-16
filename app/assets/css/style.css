@@ -640,9 +640,10 @@ nav#nav {
     line-height: 4rem;
     position: relative;
     padding-left: 1rem;
+    overflow:hidden;
 }
 
-#change-image-label::before {
+#change-image-label::after {
     position: absolute;
     content: "Choose Image";
     right: 0px;
