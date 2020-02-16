@@ -18,7 +18,7 @@
     --color-silver-2: #54667a;
     --color-silver-3: #f1f1f4;
     --color-silver-4: #999;
-    --color-red:#cd5c5c;
+    --color-red: #cd5c5c;
 }
 
 html {
@@ -504,8 +504,6 @@ nav#nav {
     width: 40%;
 }
 
-/* =====  Responsive media quires ===== */
-
 .bars {
     right: 3rem;
     top: 33%;
@@ -535,83 +533,131 @@ nav#nav {
 /**** ===== FORM ERRORS ===== ****/
 
 /***** ==== alert desing ==== ****/
-.alert{
+
+.alert {
     display: block;
-    width:100%;
+    width: 100%;
     border-radius: 0.5rem;
-    padding-top:1rem;
-    padding-bottom:1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     text-align: center;
     font-size: 1.5rem;
 }
-.alert a{
-    color:#fff;
+
+.alert a {
+    color: #fff;
     text-decoration: underline;
 }
-.alert-success{
-    background-color:var(--color-green);
-    color:#fff;
+
+.alert-success {
+    background-color: var(--color-green);
+    color: #fff;
 }
-.alert-danger{
-    background-color:red;
-    color:#fff;
+
+.alert-danger {
+    background-color: red;
+    color: #fff;
 }
+
 /***** ==== alert desing ==== ****/
 
 /****** ===== flash message ===== *****/
-.flash{
+
+.flash {
     position: fixed;
-    top:50%;
-    left:50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    width:40rem;
-    height:auto;
-    background-color:var(--color-white);
-    padding:1.5rem;
-    box-shadow:0 0 1rem rgba(0,0,0,0.5);
+    width: 40rem;
+    height: auto;
+    background-color: var(--color-white);
+    padding: 1.5rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
     z-index: 9999;
-    border-radius:3px;
+    border-radius: 3px;
 }
-.success-flash{
-    color:var(--color-green-dark);
+
+.success-flash {
+    color: var(--color-green-dark);
 }
-.error-flash{
-    color:var(--color-red);
+
+.error-flash {
+    color: var(--color-red);
 }
-.flash-heading{
-    font-size:1.4rem;
+
+.flash-heading {
+    font-size: 1.4rem;
     font-weight: 300;
     text-transform: uppercase;
 }
-.checked{
-    width:3rem;
+
+.checked {
+    width: 3rem;
     height: 3rem;
-    border:1px solid var(--color-green);
-    border-radius:50%;
+    border: 1px solid var(--color-green);
+    border-radius: 50%;
     display: inline-flex;
     flex-flow: row;
     justify-content: center;
     align-items: center;
-    margin-right:1rem;
+    margin-right: 1rem;
 }
-.error-flash .checked{
-    border:1px solid var(--color-red);
+
+.error-flash .checked {
+    border: 1px solid var(--color-red);
 }
-.flash-body p{
-    margin-top:0.5rem;
-    margin-left:3rem;
-    font-size:1.2rem;
+
+.flash-body p {
+    margin-top: 0.5rem;
+    margin-left: 3rem;
+    font-size: 1.2rem;
 }
-.remove{
+
+.remove {
     position: absolute;
-    top:1rem;
-    right:1rem;
-    font-size:2rem;
-    color:silver;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: silver;
     font-weight: bold;
     cursor: pointer;
 }
+
 /****** ===== flash message ===== *****/
+
+/********* change image *****/
+
+.change-image {
+    display: none;
+}
+
+#change-image-label {
+    display: block;
+    width: 100%;
+    border: 1px solid var(--color-green);
+    border-radius: 3px;
+    height: 4rem;
+    line-height: 4rem;
+    position: relative;
+    padding-left: 1rem;
+}
+
+#change-image-label::before {
+    position: absolute;
+    content: "Choose Image";
+    right: 0px;
+    top: 0px;
+    width: 11rem;
+    height: 100%;
+    background-color: var(--color-green);
+    color: var(--color-white);
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/********* change image *****/
+
+/* =====  Responsive media quires ===== */
 
 @media (max-width: 765px) {
     .account-left {
@@ -655,9 +701,10 @@ nav#nav {
         width: 100%;
     }
 }
-@media(max-width:480px){
-    .flash{
-        width:80%;
+
+@media(max-width:480px) {
+    .flash {
+        width: 80%;
     }
     .flash-heading {
         font-size: 1.2rem;
@@ -667,30 +714,29 @@ nav#nav {
         height: 2rem;
     }
 }
-@media(max-width:363px){
+
+@media(max-width:363px) {
     .checked {
-        width:3rem;
-        height:3rem;
-        margin-right:auto;
-        margin-left:auto;
-        display:flex;
+        width: 3rem;
+        height: 3rem;
+        margin-right: auto;
+        margin-left: auto;
+        display: flex;
     }
-    .flash-heading{
-        text-align:center;
+    .flash-heading {
+        text-align: center;
     }
-    .flash-body{
-        margin-left:0px;
-        margin-right:0px;
-        padding-left:0.5rem;
-        padding-right:0.5rem;
-        text-align:center;
+    .flash-body {
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        text-align: center;
     }
-    .flash-body p{
-        margin-left:0px;
-        margin-right:0px;
-        padding-left:0.5rem;
-        padding-right:0.5rem;
+    .flash-body p {
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
     }
 }
-    
-    
