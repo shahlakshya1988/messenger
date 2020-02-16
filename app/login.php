@@ -52,6 +52,21 @@ if(isset($_POST["login"])){
 </head>
 
 <body>
+<?php //var_dump($_SESSION); ?>
+<?php if(isset($_SESSION["security"])){ ?>
+<div class="flash error-flash">
+    <span class="remove">&times;</span>
+    <div class="flash-heading">
+        <h3> <span class="checked">&#x2715;</span> Error: You Have Done!!!</h3>
+    </div>
+    <!-- div.flash-heading -->
+    <div class="flash-body">
+	<p><?= $_SESSION["security"]; ?></p>
+    </div>
+    <!-- div.flash-body -->
+</div>
+<!-- div.flash -->
+<?php } unset($_SESSION["security"]); ?>
 	<div class="signup-container">
 		<div class="account-left">
 			<div class="account-text">

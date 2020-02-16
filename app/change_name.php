@@ -1,6 +1,8 @@
 <?php require_once __DIR__ . DIRECTORY_SEPARATOR . "init.php";
 $obj = new base_class();
 if (!isset($_SESSION["user_name"]) && !isset($_SESSION["user_id"])) {
+    $obj = new base_class();
+    $obj->createSession("security","Sorry First You Need To Login");
     header("Location: login.php");
     die();
 }
