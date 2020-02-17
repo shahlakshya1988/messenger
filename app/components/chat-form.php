@@ -1,7 +1,7 @@
-<div class="chat-form">
+<form class="chat-form" >
     <div class="chat-container">
         <div class="form-input">
-            <textarea class="textarea-control" placeholder="Type your message..."></textarea>
+            <textarea class="textarea-control" placeholder="Type your message..." id="send_message"></textarea >
         </div>
         <!-- div.form-input -->
         <div class="form-input">
@@ -11,5 +11,5 @@
         <!-- div.form-input -->
     </div>
     <!-- div.chat-container -->
-</div>
+</form>
 <!-- div.chat-form -->

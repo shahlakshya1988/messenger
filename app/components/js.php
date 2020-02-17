@@ -22,3 +22,4 @@
 
     });
 </script>
+<script type="text/javascript" src="assets/js/chat.js"></script>
