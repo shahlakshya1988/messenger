@@ -12,7 +12,10 @@
     </div>
     <!-- div.chat-container -->
     <div class="files-error">
-        <span class='files-cross-icon'>&#x2715;</span> Upload Proper File!!!!
+        <span class='files-cross-icon'>&#x2715;</span> Upload Proper Image/File!!!!
+    </div>
+    <div class="files-success">
+        <span class='files-cross-icon'>&#10004;</span> Successfully Send!!!!
     </div>
 </form>
 <!-- div.chat-form -->

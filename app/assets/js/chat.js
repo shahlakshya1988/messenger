@@ -45,8 +45,19 @@ $(document).on("change","#upload-files",function(){
                 if(feedback=="error"){
                     $(".files-error").addClass("show-file-error");
                     setTimeout(function(){
-                        $(".files-error").hide("medium");
+                        $(".files-error").hide("medium",function(){
+                            $(".files-error").removeClass("show-file-error");
+                        });
                     },6000);
+                }else if(feedback=="success"){
+                    // alert(feedback);
+                    $(".files-success").addClass("show-file-success");
+                    setTimeout(function(){
+                        $(".files-success").hide("medium",function(){
+                            $(".files-success").removeClass("show-file-success");
+                        });
+                    },6000);
+
                 }
             }
         });
@@ -54,5 +65,13 @@ $(document).on("change","#upload-files",function(){
 });
 
 $(document).click("click",".show-file-error",function(){
-    $(".files-error").hide("medium");
+    $(".files-error").hide("medium",function(){
+        $(".files-error").removeClass("show-file-error");
+    });
+});
+
+$(document).click("click",".show-file-success",function(){
+    $(".files-success").hide("medium",function(){
+        $(".files-success").removeClass("show-file-success");
+    });
 });

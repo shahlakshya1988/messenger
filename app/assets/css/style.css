@@ -658,7 +658,7 @@ nav#nav {
 
 /********* change image *****/
 
-.files-error{
+.files-error,.files-success{
     position: fixed;
     width:100%;
     height:5rem;
@@ -674,7 +674,10 @@ nav#nav {
     opacity: 0;
     transition: all 1s linear;
 }
-.files-error.show-file-error{
+.files-success{
+    background:var(--color-green);
+}
+.files-error.show-file-error,.files-success.show-file-success{
     width:100%;
     opacity: 1;
 }
@@ -700,7 +703,7 @@ nav#nav {
     .bars {
         display: block;
     }
-    .chat-container, .emoji {
+    .chat-container {
         flex-wrap: wrap;
     }
     #sidebar {
@@ -717,11 +720,14 @@ nav#nav {
         width: 95%;
         max-width: 95%;
     }
+    .emoji{
+        overflow-x: scroll;
+    }
     .emoji-same {
         margin-right: 2rem;
     }
     .messages {
-        height: 70vh;
+        /* height: 70vh; */
     }
     ::-webkit-input-placeholder {
         font-size: 0.9rem;
@@ -730,6 +736,9 @@ nav#nav {
     }
     .form-grid {
         width: 100%;
+    }
+    .files-error,.files-success{
+        bottom:20vh;
     }
 }
 

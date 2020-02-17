@@ -26,7 +26,14 @@ if (empty(trim($image_name)) || $image_error == 4) {
     if (!move_uploaded_file($image_tmp_name, $img_path)) {
         echo "error";die();
     }else{
-
+        /*** every thing is ok */
+        $query = "INSERT INTO `messages` (`message`,`msg_type`,`user_id`) values (:message,:msg_type,:user_id)";
+        $param = array(":message"=>$new_image_name,":msg_type"=>"file",":user_id"=>$_SESSION["user_id"]);
+        $obj->normalQuery($query,$param);
+        if($obj->countRows()){
+            echo "success"; die();
+        }
+        /*** every thing is ok */
     }
 }
 die();
