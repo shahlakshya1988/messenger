@@ -1,13 +1,8 @@
 <?php require_once __DIR__ . DIRECTORY_SEPARATOR . "init.php";
 $obj = new base_class();
-if (!isset($_SESSION["user_name"]) && !isset($_SESSION["user_id"])) {
-    $obj = new base_class();
-    $obj->createSession("security","Sorry First You Need To Login");
-    header("Location: login.php");
-    die();
-}
+require_once __DIR__ . DIRECTORY_SEPARATOR . "components" . DIRECTORY_SEPARATOR . "security.php";
 
-if(isset($_POST["change_image"])){
+if (isset($_POST["change_image"])) {
     $image = $_FILES["change-image"];
     $image_name = $image["name"];
     $image_type = $image["type"];
@@ -16,8 +11,8 @@ if(isset($_POST["change_image"])){
     $image_tmp_name = $image["tmp_name"];
     $image_name_array = explode(".", $image_name);
     $image_extension = end($image_name_array);
-    
-    $allowed_image_extensions = array("jpg","jpeg","png","gif");
+
+    $allowed_image_extensions = array("jpg", "jpeg", "png", "gif");
     $allowed_image_type = array("image/gif", "image/jpeg", "image/png", "image/jpeg");
 
     $new_image_name = uniqid("", true) . "." . $image_extension;
@@ -25,29 +20,29 @@ if(isset($_POST["change_image"])){
     $img_status = 1;
     unset($image_error);
     if (empty(trim($image_name)) || $image_error == 4) {
-		$image_error = "Please Upload Your Image";
-		$img_status = 0;
-	} else if (!in_array($image_extension, $allowed_image_extensions)) {
-		$image_error = "Please Upload Your Image In .jpg,.png or .gif Format";
-		$img_status = 0;
-	} else if (!in_array($image_type, $allowed_image_type)) {
-		$image_error = "Please Upload Your Image In .jpg,.png or .gif Format";
-		$img_status = 0;
-	} else {
-		if (!move_uploaded_file($image_tmp_name, $img_path)) {
-			$image_error = "Operational Error !!!, Please Try Again";
-			$img_status = 0;
-		}
+        $image_error = "Please Upload Your Image";
+        $img_status = 0;
+    } else if (!in_array($image_extension, $allowed_image_extensions)) {
+        $image_error = "Please Upload Your Image In .jpg,.png or .gif Format";
+        $img_status = 0;
+    } else if (!in_array($image_type, $allowed_image_type)) {
+        $image_error = "Please Upload Your Image In .jpg,.png or .gif Format";
+        $img_status = 0;
+    } else {
+        if (!move_uploaded_file($image_tmp_name, $img_path)) {
+            $image_error = "Operational Error !!!, Please Try Again";
+            $img_status = 0;
+        }
     }
-    
-    if($img_status == 1){
+
+    if ($img_status == 1) {
         $query = "UPDATE `users` SET `image` = :image where `id` = :id";
-        $param = array(":image"=>$new_image_name,":id"=>$_SESSION["user_id"]);
-        $obj->normalQuery($query,$param);
-        $obj->createSession("user_image",$new_image_name);
-        $obj->createSession("image_updated","Your Profile Image Is Successfully Updated");
-            header("Location: index.php");
-            die();
+        $param = array(":image" => $new_image_name, ":id" => $_SESSION["user_id"]);
+        $obj->normalQuery($query, $param);
+        $obj->createSession("user_image", $new_image_name);
+        $obj->createSession("image_updated", "Your Profile Image Is Successfully Updated");
+        header("Location: index.php");
+        die();
     }
 
     //die();
