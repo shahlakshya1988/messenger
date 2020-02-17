@@ -32,13 +32,14 @@ if (isset($_POST["login"])) {
 				$obj->normalQuery($query, $param);
 				/** updating user login status to 0*/
 				/*** if above operation is successfull then we will do below code */
-				if ($obj->countRows()) {
-					$obj->createSession("user_name", $result->name);
-					$obj->createSession("user_id", $result->id);
-					$obj->createSession("user_image", $result->image);
+				$obj->createSession("user_name", $result->name);
+				$obj->createSession("user_id", $result->id);
+				$obj->createSession("user_image", $result->image);
 
-					header("Location: index.php");
-					die();
+				header("Location: index.php");
+				die();
+				if ($obj->countRows()) {
+					
 				}else{
 					$login_error = "Enter Email/Password Not Found.<br><a href='signup.php'>Signup To Create Account</a>";
 				}

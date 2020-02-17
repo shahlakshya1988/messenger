@@ -41,8 +41,18 @@ $(document).on("change","#upload-files",function(){
                 console.log(new FormData($(".chat-form")[0]));
             },
             success:function(feedback){
-                alert(feedback);
+               // alert(feedback);
+                if(feedback=="error"){
+                    $(".files-error").addClass("show-file-error");
+                    setTimeout(function(){
+                        $(".files-error").hide("medium");
+                    },6000);
+                }
             }
         });
     }
+});
+
+$(document).click("click",".show-file-error",function(){
+    $(".files-error").hide("medium");
 });

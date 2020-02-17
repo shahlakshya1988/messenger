@@ -11,5 +11,8 @@
         <!-- div.form-input -->
     </div>
     <!-- div.chat-container -->
+    <div class="files-error">
+        <span class='files-cross-icon'>&#x2715;</span> Upload Proper File!!!!
+    </div>
 </form>
 <!-- div.chat-form -->
