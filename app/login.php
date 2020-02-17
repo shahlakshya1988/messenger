@@ -1,44 +1,54 @@
 <?php require_once __DIR__ . DIRECTORY_SEPARATOR . "init.php"; ?>
 <?php
-$obj = new base_class(); 
-if(isset($_POST["login"])){
+$obj = new base_class();
+if (isset($_POST["login"])) {
 	$email = $obj->security($_POST["email"]);
 	$password = $obj->security($_POST["password"]);
 	$email_status = $password_status = 1;
-	if(empty(trim($email))){
+	if (empty(trim($email))) {
 		$email_error = "Enter Email Address";
 		$email_status = 0;
-	}elseif(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+	} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		$email_error = "Enter Proper Email Address";
 		$email_status = 0;
 	}
-	if(empty(trim($password))){
+	if (empty(trim($password))) {
 		$password_error = "Enter Password Address";
 		$password_status = 0;
 	}
-	if($email_status == 1 && $password_status == 1){
+	if ($email_status == 1 && $password_status == 1) {
 		$query = "SELECT * FROM `users` where `email` = :email ";
-		$param = [":email"=>$email];
-		$query = $obj->normalQuery($query,$param);
-		if($obj->countRows()){
+		$param = [":email" => $email];
+		$query = $obj->normalQuery($query, $param);
+		if ($obj->countRows()) {
 			//echo "User Exists";
 			// $result = $obj->fetch_all()[0];
 			$result = $obj->fetch_single();
-			if(password_verify($password,$result->password)){
+			if (password_verify($password, $result->password)) {
 				// var_dump($result);
-				$obj->createSession("user_name",$result->name);
-				$obj->createSession("user_id",$result->id);
-				$obj->createSession("user_image",$result->image);
-				header("Location: index.php");
-				die();
-			}else{
-				$login_error="Enter Email/Password Not Found.<br><a href='signup.php'>Signup To Create Account</a>";
+				/** updating user login status to 1 */
+				$query = "UPDATE `users` SET `status` = '1' where `id` = :id";
+				$param = array(":id" => $result->id);
+				$obj->normalQuery($query, $param);
+				/** updating user login status to 0*/
+				/*** if above operation is successfull then we will do below code */
+				if ($obj->countRows()) {
+					$obj->createSession("user_name", $result->name);
+					$obj->createSession("user_id", $result->id);
+					$obj->createSession("user_image", $result->image);
+
+					header("Location: index.php");
+					die();
+				}else{
+					$login_error = "Enter Email/Password Not Found.<br><a href='signup.php'>Signup To Create Account</a>";
+				}
+				/*** if above operation is successfull then we will do below code */
+			} else {
+				$login_error = "Enter Email/Password Not Found.<br><a href='signup.php'>Signup To Create Account</a>";
 				//var_dump($login_error);
 			}
-			
 		}
 	}
-	
 }
 ?>
 <!DOCTYPE html>
@@ -52,21 +62,23 @@ if(isset($_POST["login"])){
 </head>
 
 <body>
-<?php //var_dump($_SESSION); ?>
-<?php if(isset($_SESSION["security"])){ ?>
-<div class="flash error-flash">
-    <span class="remove">&times;</span>
-    <div class="flash-heading">
-        <h3> <span class="checked">&#x2715;</span> Error: You Have Done!!!</h3>
-    </div>
-    <!-- div.flash-heading -->
-    <div class="flash-body">
-	<p><?= $_SESSION["security"]; ?></p>
-    </div>
-    <!-- div.flash-body -->
-</div>
-<!-- div.flash -->
-<?php } unset($_SESSION["security"]); ?>
+	<?php //var_dump($_SESSION); 
+	?>
+	<?php if (isset($_SESSION["security"])) { ?>
+		<div class="flash error-flash">
+			<span class="remove">&times;</span>
+			<div class="flash-heading">
+				<h3> <span class="checked">&#x2715;</span> Error: You Have Done!!!</h3>
+			</div>
+			<!-- div.flash-heading -->
+			<div class="flash-body">
+				<p><?= $_SESSION["security"]; ?></p>
+			</div>
+			<!-- div.flash-body -->
+		</div>
+		<!-- div.flash -->
+	<?php }
+	unset($_SESSION["security"]); ?>
 	<div class="signup-container">
 		<div class="account-left">
 			<div class="account-text">
