@@ -16,8 +16,11 @@ $(document).ready(function(){
                     beforeSend:function(){
                         console.log(send_message);
                     },
-                    success:function(response){
-                        console.log(response);
+                    success:function(feedback){
+                        //console.log(feedback["status"]);
+                        if(feedback["status"] == "success"){
+                            $(".chat-form").trigger("reset");
+                        }
                     }
                 });
             }
