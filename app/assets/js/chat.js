@@ -6,7 +6,7 @@ $(document).ready(function(){
             //alert("Enter Key is Pressed");
             var send_message = $("#send_message").val().trim();
             //alert(send_message);
-            if(send_message.length != '' || send_message.length != 0 ){
+            if(send_message.length != '' && send_message.length != 0 ){
                 //alert("Send Message");
                 $.ajax({
                     type:"POST",
@@ -26,4 +26,23 @@ $(document).ready(function(){
             }
         }
     });
+});
+$(document).on("change","#upload-files",function(){
+   // alert("File Uploaded");
+    var filepath = $("#upload-files").val().trim();
+    if(filepath.length !='' && filepath.length != 0){
+        $.ajax({
+            type:"POST",
+            url:"ajax/send_files.php",
+            data:new FormData($(".chat-form")[0]),
+            contentType:false,
+            processData:false,
+            beforeSend:function(){
+                console.log(new FormData($(".chat-form")[0]));
+            },
+            success:function(feedback){
+                alert(feedback);
+            }
+        });
+    }
 });
