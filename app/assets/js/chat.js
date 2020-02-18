@@ -64,14 +64,31 @@ $(document).on("change","#upload-files",function(){
     }
 });
 
-$(document).click("click",".show-file-error",function(){
+$(document).on("click",".show-file-error",function(){
     $(".files-error").hide("medium",function(){
         $(".files-error").removeClass("show-file-error");
     });
 });
 
-$(document).click("click",".show-file-success",function(){
+$(document).on("click",".show-file-success",function(){
     $(".files-success").hide("medium",function(){
         $(".files-success").removeClass("show-file-success");
+    });
+});
+
+$(document).on("click",".emoji-same",function(e){
+    var source = $(this).attr("src");
+    $.ajax({
+        type:"POST",
+        data:{send_emoji : source},
+        url:"ajax/send_emojis.php",
+        dataType:"JSON",
+        beforeSend:function(){
+
+        },
+        success:function(feedback){
+            console.log(feedback);
+        }
+
     });
 });
