@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 17, 2020 at 12:54 PM
+-- Generation Time: Feb 18, 2020 at 06:14 AM
 -- Server version: 5.7.28-log
 -- PHP Version: 5.6.40
 
@@ -35,15 +35,17 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `msg_type` varchar(255) COLLATE utf8_bin NOT NULL COMMENT 'File,Text,Emoji',
   `user_id` int(255) NOT NULL,
   `msg_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`message_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  PRIMARY KEY (`message_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `messages`
 --
 
 INSERT INTO `messages` (`message_id`, `message`, `msg_type`, `user_id`, `msg_time`) VALUES
-(2, '15e4a8cc11c5908.54524634.jpg', 'file', 1, '2020-02-17 12:53:21');
+(2, '15e4a8cc11c5908.54524634.jpg', 'jpg', 1, '2020-02-17 12:53:21'),
+(3, 'assets/emoji/emoji16.png', 'emoji', 1, '2020-02-18 06:00:46');
 
 -- --------------------------------------------------------
 
