@@ -17,7 +17,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "components" . DIRECTORY_SEPARATOR 
         <div class="flash success-flash">
             <span class="remove">&times;</span>
             <div class="flash-heading">
-                <h3> <span class="checked">&#10004</span> Success: You Have Done!!!</h3>
+                <h3> <span class="checked">&#10004;</span> Success: You Have Done!!!</h3>
             </div>
             <!-- div.flash-heading -->
             <div class="flash-body">
@@ -32,7 +32,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "components" . DIRECTORY_SEPARATOR 
         <div class="flash success-flash">
             <span class="remove">&times;</span>
             <div class="flash-heading">
-                <h3> <span class="checked">&#10004</span> Success: You Have Done!!!</h3>
+                <h3> <span class="checked">&#10004;</span> Success: You Have Done!!!</h3>
             </div>
             <!-- div.flash-heading -->
             <div class="flash-body">
@@ -47,7 +47,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "components" . DIRECTORY_SEPARATOR 
         <div class="flash success-flash">
             <span class="remove">&times;</span>
             <div class="flash-heading">
-                <h3> <span class="checked">&#10004</span> Success: You Have Done!!!</h3>
+                <h3> <span class="checked">&#10004;</span> Success: You Have Done!!!</h3>
             </div>
             <!-- div.flash-heading -->
             <div class="flash-body">
