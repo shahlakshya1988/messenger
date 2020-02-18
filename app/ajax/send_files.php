@@ -28,7 +28,7 @@ if (empty(trim($image_name)) || $image_error == 4) {
     }else{
         /*** every thing is ok */
         $query = "INSERT INTO `messages` (`message`,`msg_type`,`user_id`) values (:message,:msg_type,:user_id)";
-        $param = array(":message"=>$new_image_name,":msg_type"=>"file",":user_id"=>$_SESSION["user_id"]);
+        $param = array(":message"=>$new_image_name,":msg_type"=>$image_extension,":user_id"=>$_SESSION["user_id"]);
         $obj->normalQuery($query,$param);
         if($obj->countRows()){
             echo "success"; die();
