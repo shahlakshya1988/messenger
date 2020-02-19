@@ -20,12 +20,74 @@ $last_message_id = $result_last_message_id->message_id;
     $query = "SELECT * FROM `messages` inner join `users` on `messages`.`user_id` = `users`.`id` where `messages`.`message_id` BETWEEN :clean_message_id and :last_message_id ORDER BY `messages`.`message_id` ASC ";
     $param = array(":clean_message_id"=>$clean_message_id,":last_message_id"=>$last_message_id);
     $obj->normalQuery($query,$param);
-    $result_msg = $obj->fetch_all();
-    //echo "<pre>",print_r($result_msg),"</pre>";
-    foreach($result_msg as $informations){
-        print_r($informations);
-        echo "<br><br>";
+    if($obj->countRows()){
+        $result_msg = $obj->fetch_all();
+        //echo "<pre>",print_r($result_msg),"</pre>";
+        foreach($result_msg as $msg){
+            // print_r($msg);
+            $fullname = ucfirst($msg->name);
+            $email = $msg->email;
+            $user_image = $msg->image;
+            $user_status = $msg->status;
+
+            $message = $msg->message;
+            $message_type = $msg->msg_type;
+            $message_user_id = $msg->user_id;
+            $message_time = $msg->msg_time;
+            /**** message type ****/
+            
+            /**** message type ****/
+            if($message_user_id == $_SESSION["user_id"]){
+                echo '<!-- div.right-message -->
+    <div class="right-message common-margin">
+        <div class="right-msg-area">
+            <span class="date-time right-time">
+                1 Day Ago
+            </span>
+            <!-- span.date-time -->
+            <div class="right-msg">
+                <p>'.$message.'</p>
+            </div>
+            <!-- div.right-msg -->
+        </div>
+        <!-- div.right-msg-area -->
+    </div>
+    <!-- div.right-message -->';
+            }else{
+                echo '<div class="left-message common-margin">
+        <div class="sender-img-block">
+            <img src="assets/img/'.$user_image.'" class="sender-img" alt="'.$fullname.'">
+            <span class="online-icon"></span>
+        </div>
+        <!-- div.sender-img-block -->
+        <div class="left-msg-area">
+            <div class="user-name-date">
+                <span class="sender-name">
+                    '.$fullname.'
+                </span>
+                <!-- span.sender-name -->
+                <span class="date-time">
+                    1 Day Ago
+                </span>
+                <!-- span.date-time -->
+            </div>
+            <!-- div.user-name-date -->
+            <div class="left-msg">
+                <p>'.$message.'</p>
+            </div>
+            <!-- div.left-msg -->
+        </div>
+        <!-- div.left-msg-area -->
+    </div>
+    <!-- div.left-message -->';
+            }
+
+            echo "<br><br>";
+        }
+    }else{
+        echo "Lets Start Converations With Your Friends !!!!";
     }
+    
     /*** we will fetch messages between those ids clean_message_id and last_message_id */
 }
 ?>
