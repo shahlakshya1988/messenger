@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 18, 2020 at 06:14 AM
+-- Generation Time: Feb 19, 2020 at 05:34 AM
 -- Server version: 5.7.28-log
 -- PHP Version: 5.6.40
 
@@ -21,6 +21,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `messenger`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `clean`
+--
+
+DROP TABLE IF EXISTS `clean`;
+CREATE TABLE IF NOT EXISTS `clean` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `clean_message_id` int(255) NOT NULL,
+  `clean_user_id` int(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -56,20 +70,21 @@ INSERT INTO `messages` (`message_id`, `message`, `msg_type`, `user_id`, `msg_tim
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL,
+  `name` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `email` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `password` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `image` varchar(255) CHARACTER SET latin1 NOT NULL,
   `status` int(11) NOT NULL DEFAULT '0' COMMENT 'if user is online then it will store 1 otherwise 0',
+  `clean_status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `image`, `status`) VALUES
-(1, 'hello', 'hello@example.com', '$2y$10$ZH.wzsUxQBE2eAEu/S8jTugFEYLKVZaPHrs.dZ.WSncBnmaMR1axm', '5e4a54212633f3.63902710.png', 1);
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `image`, `status`, `clean_status`) VALUES
+(1, 'hello', 'hello@example.com', '$2y$10$ZH.wzsUxQBE2eAEu/S8jTugFEYLKVZaPHrs.dZ.WSncBnmaMR1axm', '5e4a54212633f3.63902710.png', 0, 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
