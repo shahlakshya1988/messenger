@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 19, 2020 at 06:58 AM
+-- Generation Time: Feb 19, 2020 at 12:06 PM
 -- Server version: 5.7.28-log
 -- PHP Version: 5.6.40
 
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `msg_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`message_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `messages`
@@ -74,7 +74,10 @@ INSERT INTO `messages` (`message_id`, `message`, `msg_type`, `user_id`, `msg_tim
 (7, 'Messages after hello1 login', 'text', 1, '2020-02-19 06:36:10'),
 (8, 'I am a new user', 'text', 2, '2020-02-19 06:40:04'),
 (9, 'hello1', 'text', 2, '2020-02-19 06:40:05'),
-(10, 'Checking the code', 'text', 1, '2020-02-19 06:57:45');
+(10, 'Checking the code', 'text', 1, '2020-02-19 06:57:45'),
+(11, 'hello Welcome', 'text', 1, '2020-02-19 11:57:14'),
+(12, 'assets/emoji/emoji6.png', 'emoji', 1, '2020-02-19 11:58:01'),
+(13, '15e4d243a052881.07132283.jpg', 'jpg', 1, '2020-02-19 12:04:10');
 
 -- --------------------------------------------------------
 

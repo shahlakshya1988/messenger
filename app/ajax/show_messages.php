@@ -54,13 +54,13 @@ if (isset($_GET["message"]) && !empty(trim($obj->security($_GET["message"])))) {
                 } elseif ($message_type == "zip") {
                     $message_html_txt .= '<p>' . $message . '</p>';
                 } elseif ($message_type == "jpg" || $message_type == "jpeg") {
-                    $message_html_txt .= '<p>' . $message . '</p>';
+                    $message_html_txt .= '<p><img src="assets/img/' . $message . '"></p>';
                 } elseif ($message_type == "png") {
-                    $message_html_txt .= '<p>' . $message . '</p>';
+                    $message_html_txt .= '<p><img src="assets/img/' . $message . '"></p>';
                 } elseif ($message_type == "gif") {
-                    $message_html_txt .= '<p>' . $message . '</p>';
+                    $message_html_txt .= '<p><img src="assets/img/' . $message . '"></p>';
                 } elseif ($message_type == "pdf") {
-                    $message_html_txt .= '<p>' . $message . '</p>';
+                    $message_html_txt .= '<p><img src="assets/img/' . $message . '"></p>';
                 } elseif ($message_type == "text") {
                     $message_html_txt .= '<p>' . $message . '</p>';
                 } elseif ($message_type == "emoji") {
@@ -107,13 +107,13 @@ if (isset($_GET["message"]) && !empty(trim($obj->security($_GET["message"])))) {
                 } elseif ($message_type == "zip") {
                     $message_html_txt .= '<p>' . $message . '</p>';
                 } elseif ($message_type == "jpg" || $message_type == "jpeg") {
-                    $message_html_txt .= '<p>' . $message . '</p>';
+                    $message_html_txt .= '<p><img src="assets/img/' . $message . '"></p>';
                 } elseif ($message_type == "png") {
-                    $message_html_txt .= '<p>' . $message . '</p>';
+                    $message_html_txt .= '<p><img src="assets/img/' . $message . '"></p>';
                 } elseif ($message_type == "gif") {
-                    $message_html_txt .= '<p>' . $message . '</p>';
+                    $message_html_txt .= '<p><img src="assets/img/' . $message . '"></p>';
                 } elseif ($message_type == "pdf") {
-                    $message_html_txt .= '<p>' . $message . '</p>';
+                    $message_html_txt .= '<p><img src="assets/img/' . $message . '"></p>';
                 } elseif ($message_type == "text") {
                     $message_html_txt .= '<p>' . $message . '</p>';
                 } elseif ($message_type == "emoji") {
