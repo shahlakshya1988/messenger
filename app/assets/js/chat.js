@@ -92,3 +92,22 @@ $(document).on("click",".emoji-same",function(e){
 
     });
 });
+
+/**
+ *show messages
+ *this will fetch the messages from the database
+ */
+function show_messages(){
+    var message = true;
+    $.ajax({
+        type:"GET",
+        url:"ajax/show_messages.php",
+        data:{message:message},
+        success:function(feedback){
+            console.log(feedback);
+            $(".messages").html(feedback);
+        }
+
+    });
+}
+show_messages();
