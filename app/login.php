@@ -26,18 +26,50 @@ if (isset($_POST["login"])) {
 			$result = $obj->fetch_single();
 			if (password_verify($password, $result->password)) {
 				// var_dump($result);
+				$clean_status = $result->clean_status;
+
 				/** updating user login status to 1 */
 				$query = "UPDATE `users` SET `status` = '1' where `id` = :id";
 				$param = array(":id" => $result->id);
 				$obj->normalQuery($query, $param);
 				/** updating user login status to 0*/
 				/*** if above operation is successfull then we will do below code */
-				$obj->createSession("user_name", $result->name);
-				$obj->createSession("user_id", $result->id);
-				$obj->createSession("user_image", $result->image);
-
-				header("Location: index.php");
-				die();
+				if($clean_status == 0){
+					/** getting the last messages_id */
+					$query = "SELECT message_id from `messages` order by `message_id` DESC limit 1";
+					$obj->normalQuery($query);
+					$result_message_id = $obj->fetch_single();
+					$last_message_id = $result_message_id->message_id;
+					// we will starting fetching messages from this id
+					// old message_id will be skipped
+					$last_message_id++; 
+					//var_dump($last_message_id);
+					//die();
+					/** getting the last messages_id */
+					/*** insert the values in clean table */
+					$query = "INSERT INTO `clean` (`clean_message_id`,`clean_user_id`) values (:clean_message_id,:clean_user_id)";
+					$param = array(":clean_message_id"=>$last_message_id,":clean_user_id"=>$result->id);
+					$obj->normalQuery($query,$param);
+					if($obj->countRows()){
+						$update_query = "UPDATE `users` SET `clean_status` = '1' where `id` = :id";
+						$param = array(":id"=>$result->id);
+						$obj->normalQuery($update_query,$param);
+					}
+					//die();
+					/*** insert the values in clean table */
+					$obj->createSession("user_name", $result->name);
+					$obj->createSession("user_id", $result->id);
+					$obj->createSession("user_image", $result->image);
+					header("Location: index.php");
+					die();
+				}else{
+					$obj->createSession("user_name", $result->name);
+					$obj->createSession("user_id", $result->id);
+					$obj->createSession("user_image", $result->image);
+					header("Location: index.php");
+					die();
+				}
+				
 				if ($obj->countRows()) {
 					
 				}else{
