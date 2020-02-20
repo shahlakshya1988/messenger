@@ -1,6 +1,10 @@
 <?php require_once __DIR__ . DIRECTORY_SEPARATOR . "init.php";
 $obj = new base_class(); ?>
 <?php
+if(isset($_SESSION["user_id"])){
+	header("Location: index.php");
+	die();
+}
 if (isset($_POST["signup"])) {
 	$full_name = $obj->security($_POST["full_name"]);
 	$email = $obj->security($_POST["email"]);

@@ -1,6 +1,10 @@
 <?php require_once __DIR__ . DIRECTORY_SEPARATOR . "init.php"; ?>
 <?php
 $obj = new base_class();
+if(isset($_SESSION["user_id"])){
+	header("Location: index.php");
+	die();
+}
 if (isset($_POST["login"])) {
 	$email = $obj->security($_POST["email"]);
 	$password = $obj->security($_POST["password"]);
@@ -57,18 +61,31 @@ if (isset($_POST["login"])) {
 					}
 					//die();
 					/*** insert the values in clean table */
-					$obj->createSession("user_name", $result->name);
-					$obj->createSession("user_id", $result->id);
-					$obj->createSession("user_image", $result->image);
-					header("Location: index.php");
-					die();
+					
 				}else{
-					$obj->createSession("user_name", $result->name);
-					$obj->createSession("user_id", $result->id);
-					$obj->createSession("user_image", $result->image);
-					header("Location: index.php");
-					die();
+					
 				}
+				$obj->createSession("user_name", $result->name);
+				$obj->createSession("user_id", $result->id);
+				$obj->createSession("user_image", $result->image);
+				$obj->createSession("session_id", session_id());
+				/*** inserting this session id into the table */
+				/*** first of all we will check if the user is inside of the table */
+				$query = "SELECT `id` from `user_sessions` where `user_id` = :user_id";
+				$param = array(":user_id"=>$_SESSION["user_id"]);
+				$obj->normalQuery($query,$param);
+				if($obj->countRows()){
+					$del_user = "DELETE FROM `user_sessions` where `user_id` = :user_id and `session_id` != :session_id ";
+					$param = array(":session_id"=>$_SESSION["session_id"],":user_id"=>$_SESSION["user_id"]);
+					$obj->normalQuery($del_user,$param);
+				}
+				/*** first of all we will check if the user is inside of the table */
+				$query = "INSERT INTO `user_sessions` (`session_id`,`user_id`) values (:session_id,:user_id)";
+				$param = array(":session_id"=>$_SESSION["session_id"],":user_id"=>$_SESSION["user_id"]);
+				$obj->normalQuery($query,$param);
+				/*** inserting this session id into the table */
+				header("Location: index.php");
+				die();
 				
 				if ($obj->countRows()) {
 					

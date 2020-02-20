@@ -107,16 +107,32 @@ function show_messages(){
         url:"ajax/show_messages.php",
         data:{message:message},
         success:function(feedback){
-            console.log(feedback);
+            //console.log(feedback);
             $(".messages").html(feedback);
         }
 
     });
 }
 show_messages();
+function count_online_users(){
+    //var count = 0;
+    console.log("Called");
+    $.ajax({
+        type:"GET",
+        url:"ajax/count_online_user.php",
+        dataType:"JSON",
+        success:function(feedback){
+            console.log(feedback);
+            count = feedback["count"];
+            $(".currently_active_users").html(count);
+        }
+    });
+}
+count_online_users();
 window.addEventListener("load",function(){
     $(".messages").animate({scrollTop:$(".messages")[0].scrollHeight},1000);
     setInterval(function(){
         show_messages();
+        count_online_users();
     },3000);
 });
