@@ -35,13 +35,14 @@ if (isset($_GET["message"]) && !empty(trim($obj->security($_GET["message"])))) {
             $message_type = $msg->msg_type;
             $message_user_id = $msg->user_id;
             $message_time = $msg->msg_time;
+            $message_time_diff = $obj->time_age($message_time);
 
             if ($message_user_id == $_SESSION["user_id"]) {
                 $message_html_txt .= '<!-- div.right-message -->
     <div class="right-message common-margin">
         <div class="right-msg-area">
             <span class="date-time right-time">
-                1 Day Ago
+                '.$message_time_diff.'
             </span>
             <!-- span.date-time -->';
             if ($message_type == "text" ) {
@@ -102,7 +103,7 @@ if (isset($_GET["message"]) && !empty(trim($obj->security($_GET["message"])))) {
                 </span>
                 <!-- span.sender-name -->
                 <span class="date-time">
-                    1 Day Ago
+                '.$message_time_diff.'
                 </span>
                 <!-- span.date-time -->
             </div>

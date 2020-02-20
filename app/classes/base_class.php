@@ -48,5 +48,20 @@ class base_class extends db
         $weeks = floor($seconds/(7*60*60*24)); // 7 days in one week
         $months = floor($seconds/(30*60*60*24)); // 30 days in one month
         $years = floor($seconds/(365*60*60*24)); // 365 days in one month
+        if($seconds <= 60){
+            return "Just Now";
+        }elseif($minutes<=60){
+            return $minutes." Minute(s) Ago";
+        }elseif($hours<=24){
+            return $hours." Hour(s) Ago";
+        }elseif($days<=7){
+            return $days." Day(s) Ago";
+        }elseif($weeks<=4){
+            return $weeks." Week(s) Ago";
+        }elseif($months <= 12){
+            return $months." Month(s) Ago";
+        }else{
+            return $years." Year(s) Ago";
+        }
     }
 }
