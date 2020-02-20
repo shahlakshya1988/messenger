@@ -56,7 +56,7 @@ if (isset($_GET["message"]) && !empty(trim($obj->security($_GET["message"])))) {
                 } elseif ($message_type == "doc" || $message_type == "docx") {
                     $message_html_txt .= '<p>' . $message . '</p>';
                 } elseif ($message_type == "zip") {
-                    $message_html_txt .= '<p>' . $message . '</p>';
+                    $message_html_txt .= '<p><a href="assets/img/" download="'.$message.'" class="all-files"><i class="fas fa-arrow-circle-down"></i>' . $message . '</a></p>';
                 } elseif ($message_type == "jpg" || $message_type == "jpeg") {
                     $message_html_txt .= '<p><img src="assets/img/' . $message . '" class="common-images"></p>';
                 } elseif ($message_type == "png") {
@@ -64,7 +64,7 @@ if (isset($_GET["message"]) && !empty(trim($obj->security($_GET["message"])))) {
                 } elseif ($message_type == "gif") {
                     $message_html_txt .= '<p><img src="assets/img/' . $message . '"></p>';
                 } elseif ($message_type == "pdf") {
-                    $message_html_txt .= '<p><img src="assets/img/' . $message . '"></p>';
+                    $message_html_txt .= '<p><a href="assets/img/" download="'.$message.'" class="all-files"><i class="fas fa-file-pdf"></i>' . $message . '</a></p>';
                 } elseif ($message_type == "text") {
                     $message_html_txt .= '<p>' . $message . '</p>';
                 } elseif ($message_type == "emoji") {
@@ -109,11 +109,11 @@ if (isset($_GET["message"]) && !empty(trim($obj->security($_GET["message"])))) {
 
                 /**** message type ****/
                 if ($message_type == "xls" || $message_type == "xlsx") {
-                    $message_html_txt .= '<p>' . $message . '</p>';
+                    $message_html_txt .= '<p><a href="assets/img/" download="'.$message.'" class="all-files"><i class="fas fa-arrow-circle-down"></i>' . $message . '</a></p>';
                 } elseif ($message_type == "doc" || $message_type == "docx") {
-                    $message_html_txt .= '<p>' . $message . '</p>';
+                    $message_html_txt .= '<p><a href="assets/img/" download="'.$message.'" class="all-files"><i class="fas fa-arrow-circle-down"></i>' . $message . '</a></p>';
                 } elseif ($message_type == "zip") {
-                    $message_html_txt .= '<p>' . $message . '</p>';
+                    $message_html_txt .= '<p><a href="assets/img/" download="'.$message.'" class="all-files"><i class="fas fa-arrow-circle-down"></i>' . $message . '</a></p>';
                 } elseif ($message_type == "jpg" || $message_type == "jpeg") {
                     $message_html_txt .= '<p><img src="assets/img/' . $message . '" class="common-images"></p>';
                 } elseif ($message_type == "png") {
@@ -121,7 +121,7 @@ if (isset($_GET["message"]) && !empty(trim($obj->security($_GET["message"])))) {
                 } elseif ($message_type == "gif") {
                     $message_html_txt .= '<p><img src="assets/img/' . $message . '"></p>';
                 } elseif ($message_type == "pdf") {
-                    $message_html_txt .= '<p><img src="assets/img/' . $message . '"></p>';
+                    $message_html_txt .= '<p><a href="assets/img/" download="'.$message.'" class="all-files"><i class="fas fa-file-pdf"></i>' . $message . '</a></p>';
                 } elseif ($message_type == "text") {
                     $message_html_txt .= '<p>' . $message . '</p>';
                 } elseif ($message_type == "emoji") {

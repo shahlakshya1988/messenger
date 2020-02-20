@@ -401,7 +401,20 @@ nav#nav {
     display: inline-block;
     max-width:100%;
 }
+.all-files{
+    text-decoration:none;
+    color:var(--color-green);
+    display: inline-flex;
+    justify-content: center;
 
+}
+.all-files .fas{
+    margin-right:0.5rem;
+    font-size:2.2rem;
+}
+.all-files .fas.fa-file-pdf{
+    color:var(--color-red);
+}
 /*** DESIGN CUSTOM SCROLL BAR ***/
 
 .messages::-webkit-scrollbar {
