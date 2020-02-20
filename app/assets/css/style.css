@@ -383,10 +383,23 @@ nav#nav {
     position: relative;
     font-size: 1.2rem;
 }
-
+.right-files{
+    background:var(--color-white);
+    padding: 1rem;
+    width: auto;
+    margin-top: 1rem;
+    position: relative;
+    font-size: 1.2rem;
+}
 .right-time {
     text-align: right;
     display: block;
+}
+.common-images{
+    width:11rem;
+    height:auto;
+    display: inline-block;
+    max-width:100%;
 }
 
 /*** DESIGN CUSTOM SCROLL BAR ***/
