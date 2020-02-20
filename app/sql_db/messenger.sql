@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 20, 2020 at 05:55 AM
+-- Generation Time: Feb 20, 2020 at 12:18 PM
 -- Server version: 5.7.28-log
--- PHP Version: 5.6.40
+-- PHP Version: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `msg_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`message_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `messages`
@@ -87,7 +87,8 @@ INSERT INTO `messages` (`message_id`, `message`, `msg_type`, `user_id`, `msg_tim
 (19, '25e4e1b8b305eb1.98327303.docx', 'docx', 2, '2020-02-20 05:39:23'),
 (20, '25e4e1b94239407.03001295.xlsx', 'xlsx', 2, '2020-02-20 05:39:32'),
 (21, '15e4e1bb9df5876.81802107.zip', 'zip', 1, '2020-02-20 05:40:09'),
-(22, 'hello', 'text', 3, '2020-02-20 05:52:32');
+(22, 'hello', 'text', 3, '2020-02-20 05:52:32'),
+(23, 'hello', 'text', 1, '2020-02-20 07:58:24');
 
 -- --------------------------------------------------------
 
@@ -112,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `image`, `status`, `clean_status`) VALUES
-(1, 'hello', 'hello@example.com', '$2y$10$ZH.wzsUxQBE2eAEu/S8jTugFEYLKVZaPHrs.dZ.WSncBnmaMR1axm', '5e4a54212633f3.63902710.png', 0, 1),
+(1, 'hello', 'hello@example.com', '$2y$10$ZH.wzsUxQBE2eAEu/S8jTugFEYLKVZaPHrs.dZ.WSncBnmaMR1axm', '5e4a54212633f3.63902710.png', 1, 1),
 (2, 'hello1', 'hello1@example.com', '$2y$10$Zhn3AjPfsQhAYkta4k06/.z1evNixudXviQlAK0NVEXRQcniqln4G', '5e4cd735b33959.61866800.png', 1, 1),
 (3, 'hello2@example.com', 'hello2@example.com', '$2y$10$gqU6pMCZLdYda9RO38uOaOiIhBnRNwsBeZnAel5sEFWRw0R7J0h/K', '5e4e1e93a03551.20743619.png', 1, 1);
 COMMIT;
