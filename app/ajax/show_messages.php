@@ -85,9 +85,15 @@ if (isset($_GET["message"]) && !empty(trim($obj->security($_GET["message"])))) {
             } else {
                 $message_html_txt .= '<div class="left-message common-margin">
         <div class="sender-img-block">
-            <img src="assets/img/' . $user_image . '" class="sender-img" alt="' . $fullname . '">
-            <span class="online-icon"></span>
-        </div>
+            <img src="assets/img/' . $user_image . '" class="sender-img" alt="' . $fullname . '">';
+            if($user_status == 1){
+                $message_html_txt .= '<span class="online-icon"></span>';
+            }else{
+                $message_html_txt .= '<span class="offline-icon"></span>';
+            }
+            
+            
+            $message_html_txt .='</div>
         <!-- div.sender-img-block -->
         <div class="left-msg-area">
             <div class="user-name-date">

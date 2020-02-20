@@ -241,7 +241,7 @@ nav#nav {
     display: inline-block;
 }
 
-.left-msg {
+.left-msg,.left-files {
     padding: 1rem;
     width: auto;
     background-image: linear-gradient(to right, var(--color-green-light), var(--color-green-dark));
@@ -253,8 +253,11 @@ nav#nav {
     position: relative;
     font-size: 1.2rem;
 }
-
-.left-msg::before {
+.left-files a{
+    text-decoration: none;
+    color:var(--color-white);
+}
+.left-msg::before,.left-files::before {
     content: "";
     position: absolute;
     top: 0px;
