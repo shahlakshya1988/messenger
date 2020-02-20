@@ -1,4 +1,6 @@
 <div class="messages">
+    <?php /*** 
+     
     <div class="left-message common-margin">
         <div class="sender-img-block">
             <img src="assets/img/pro3.jpg" class="sender-img" alt="">
@@ -81,5 +83,7 @@
         <!-- div.right-msg-area -->
     </div>
     <!-- div.right-message -->
+
+     ****/ ?>
 </div>
 <!-- div.messages -->

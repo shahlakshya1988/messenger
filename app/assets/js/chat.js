@@ -1,5 +1,6 @@
 $(document).ready(function(){
     // alert("Hello");
+  
     $(".chat-form").keypress(function(e){
         //alert(e.keyCode);
         if(e.keyCode == 13){
@@ -18,6 +19,7 @@ $(document).ready(function(){
                     },
                     success:function(feedback){
                         //console.log(feedback["status"]);
+                        show_messages();
                         if(feedback["status"] == "success"){
                             $(".chat-form").trigger("reset");
                         }
@@ -51,6 +53,7 @@ $(document).on("change","#upload-files",function(){
                     },6000);
                 }else if(feedback=="success"){
                     // alert(feedback);
+                    show_messages();
                     $(".files-success").addClass("show-file-success");
                     setTimeout(function(){
                         $(".files-success").hide("medium",function(){
@@ -87,7 +90,7 @@ $(document).on("click",".emoji-same",function(e){
 
         },
         success:function(feedback){
-            console.log(feedback);
+            show_messages();
         }
 
     });
@@ -111,3 +114,9 @@ function show_messages(){
     });
 }
 show_messages();
+window.addEventListener("load",function(){
+    $(".messages").animate({scrollTop:$(".messages")[0].scrollHeight},1000);
+    setInterval(function(){
+        show_messages();
+    },3000);
+});
