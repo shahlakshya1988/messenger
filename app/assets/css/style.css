@@ -241,7 +241,7 @@ nav#nav {
     display: inline-block;
 }
 
-.left-msg,.left-files {
+.left-msg {
     padding: 1rem;
     width: auto;
     background-image: linear-gradient(to right, var(--color-green-light), var(--color-green-dark));
@@ -252,12 +252,22 @@ nav#nav {
     margin-top: 1rem;
     position: relative;
     font-size: 1.2rem;
+    box-shadow: 0 0 1rem rgba(0,0,0,0.3);
+}
+.left-files{
+    padding: 1rem;
+    width: auto;
+    background:var(--color-white);
+    margin-top: 1rem;
+    position: relative;
+    font-size: 1.2rem;
+    /* box-shadow: 0 0 0.1rem rgba(0,0,0,0.5); */
 }
 .left-files a{
     text-decoration: none;
-    color:var(--color-white);
+    color:var(--color-green-dark);
 }
-.left-msg::before,.left-files::before {
+.left-msg::before {
     content: "";
     position: absolute;
     top: 0px;
