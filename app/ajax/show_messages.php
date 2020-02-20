@@ -42,7 +42,7 @@ if (isset($_GET["message"]) && !empty(trim($obj->security($_GET["message"])))) {
     <div class="right-message common-margin">
         <div class="right-msg-area">
             <span class="date-time right-time">
-                '.$message_time_diff.'
+               <span class="send_message_mark">&#10004;</span> '.$message_time_diff.'
             </span>
             <!-- span.date-time -->';
             if ($message_type == "text" ) {

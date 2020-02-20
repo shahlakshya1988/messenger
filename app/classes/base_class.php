@@ -39,6 +39,7 @@ class base_class extends db
     }
     public function time_age($db_message_time)
     {
+        date_default_timezone_set("Asia/Kolkata");
         $db_time = strtotime($db_message_time);
         $current_time = time();
         $seconds = $current_time - $db_time;
