@@ -28,6 +28,21 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "components" . DIRECTORY_SEPARATOR 
         <!-- div.flash -->
     <?php }
     unset($_SESSION["user_name_update_success"]); ?>
+    <?php if (isset($_SESSION["previous_messages_delete"])) { ?>
+        <div class="flash success-flash">
+            <span class="remove">&times;</span>
+            <div class="flash-heading">
+                <h3> <span class="checked">&#10004;</span> Success: You Have Done!!!</h3>
+            </div>
+            <!-- div.flash-heading -->
+            <div class="flash-body">
+                <p><?= $_SESSION["previous_messages_delete"]; ?></p>
+            </div>
+            <!-- div.flash-body -->
+        </div>
+        <!-- div.flash -->
+    <?php }
+    unset($_SESSION["previous_messages_delete"]); ?>
     <?php if (isset($_SESSION["password_updated"])) { ?>
         <div class="flash success-flash">
             <span class="remove">&times;</span>

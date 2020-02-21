@@ -6,6 +6,7 @@ if(isset($_SESSION["user_id"])){
 	die();
 }
 if (isset($_POST["login"])) {
+	
 	$email = $obj->security($_POST["email"]);
 	$password = $obj->security($_POST["password"]);
 	$email_status = $password_status = 1;
@@ -20,6 +21,7 @@ if (isset($_POST["login"])) {
 		$password_error = "Enter Password Address";
 		$password_status = 0;
 	}
+
 	if ($email_status == 1 && $password_status == 1) {
 		$query = "SELECT * FROM `users` where `email` = :email ";
 		$param = [":email" => $email];
@@ -28,6 +30,7 @@ if (isset($_POST["login"])) {
 			//echo "User Exists";
 			// $result = $obj->fetch_all()[0];
 			$result = $obj->fetch_single();
+			
 			if (password_verify($password, $result->password)) {
 				// var_dump($result);
 				$clean_status = $result->clean_status;
@@ -97,6 +100,8 @@ if (isset($_POST["login"])) {
 				$login_error = "Enter Email/Password Not Found.<br><a href='signup.php'>Signup To Create Account</a>";
 				//var_dump($login_error);
 			}
+		}else{
+			$login_error = "Enter Email/Password Not Found.<br><a href='signup.php'>Signup To Create Account</a>";
 		}
 	}
 }

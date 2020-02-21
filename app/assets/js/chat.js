@@ -140,3 +140,18 @@ window.addEventListener("load",function(){
          count_online_users();
     },20000);
 });
+
+$(document).on("click",".delete_messages_a",function(){
+    var delete_message = true;
+    $.ajax({
+        type:"POST",
+        url:"ajax/delete_messages.php",
+        dataType:"JSON",
+        success:function(feedback){
+            //console.log(feedback);
+            if(feedback["status"] == "success"){
+                location.href="index.php";
+            }
+        }
+    });
+});
