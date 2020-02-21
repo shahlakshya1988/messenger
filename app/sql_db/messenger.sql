@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 21, 2020 at 05:46 AM
+-- Generation Time: Feb 21, 2020 at 07:44 AM
 -- Server version: 5.7.28-log
 -- PHP Version: 7.1.33
 
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `msg_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`message_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `messages`
@@ -97,7 +97,8 @@ INSERT INTO `messages` (`message_id`, `message`, `msg_type`, `user_id`, `msg_tim
 (29, 'assets/emoji/emoji4.png', 'emoji', 3, '2020-02-21 05:23:52'),
 (30, 'assets/emoji/emoji4.png', 'emoji', 3, '2020-02-21 05:23:52'),
 (31, 'assets/emoji/emoji4.png', 'emoji', 3, '2020-02-21 05:23:52'),
-(32, 'assets/emoji/emoji14.png', 'emoji', 1, '2020-02-21 05:33:27');
+(32, 'assets/emoji/emoji14.png', 'emoji', 1, '2020-02-21 05:33:27'),
+(33, 'assets/emoji/emoji19.png', 'emoji', 3, '2020-02-21 07:41:23');
 
 -- --------------------------------------------------------
 
@@ -139,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `user_sessions` (
   `user_id` int(255) NOT NULL,
   `datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

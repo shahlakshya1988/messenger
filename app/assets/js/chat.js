@@ -116,7 +116,7 @@ function show_messages(){
 show_messages();
 function count_online_users(){
     //var count = 0;
-    console.log("Called");
+    // console.log("Called");
     $.ajax({
         type:"GET",
         url:"ajax/count_online_user.php",
@@ -133,6 +133,10 @@ window.addEventListener("load",function(){
     $(".messages").animate({scrollTop:$(".messages")[0].scrollHeight},1000);
     setInterval(function(){
         show_messages();
-        count_online_users();
+        // count_online_users();
     },3000);
+    setInterval(function(){
+        // show_messages();
+         count_online_users();
+    },20000);
 });
