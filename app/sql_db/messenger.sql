@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 20, 2020 at 12:18 PM
--- Server version: 5.7.28-log
--- PHP Version: 7.1.33
+-- Generation Time: Feb 21, 2020 at 02:46 AM
+-- Server version: 5.7.28
+-- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -113,9 +113,31 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `image`, `status`, `clean_status`) VALUES
-(1, 'hello', 'hello@example.com', '$2y$10$ZH.wzsUxQBE2eAEu/S8jTugFEYLKVZaPHrs.dZ.WSncBnmaMR1axm', '5e4a54212633f3.63902710.png', 1, 1),
-(2, 'hello1', 'hello1@example.com', '$2y$10$Zhn3AjPfsQhAYkta4k06/.z1evNixudXviQlAK0NVEXRQcniqln4G', '5e4cd735b33959.61866800.png', 1, 1),
-(3, 'hello2@example.com', 'hello2@example.com', '$2y$10$gqU6pMCZLdYda9RO38uOaOiIhBnRNwsBeZnAel5sEFWRw0R7J0h/K', '5e4e1e93a03551.20743619.png', 1, 1);
+(1, 'hello', 'hello@example.com', '$2y$10$ZH.wzsUxQBE2eAEu/S8jTugFEYLKVZaPHrs.dZ.WSncBnmaMR1axm', '5e4a54212633f3.63902710.png', 0, 1),
+(2, 'hello1', 'hello1@example.com', '$2y$10$Zhn3AjPfsQhAYkta4k06/.z1evNixudXviQlAK0NVEXRQcniqln4G', '5e4cd735b33959.61866800.png', 0, 1),
+(3, 'hello2@example.com', 'hello2@example.com', '$2y$10$gqU6pMCZLdYda9RO38uOaOiIhBnRNwsBeZnAel5sEFWRw0R7J0h/K', '5e4e1e93a03551.20743619.png', 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_sessions`
+--
+
+DROP TABLE IF EXISTS `user_sessions`;
+CREATE TABLE IF NOT EXISTS `user_sessions` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `session_id` varchar(255) NOT NULL,
+  `user_id` int(255) NOT NULL,
+  `datatime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_sessions`
+--
+
+INSERT INTO `user_sessions` (`id`, `session_id`, `user_id`, `datatime`) VALUES
+(3, 'fsdie5feu60c1cmbdvitn3rfdh', 1, '2020-02-20 21:36:30');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
