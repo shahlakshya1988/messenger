@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 21, 2020 at 02:46 AM
--- Server version: 5.7.28
--- PHP Version: 7.3.12
+-- Generation Time: Feb 21, 2020 at 05:46 AM
+-- Server version: 5.7.28-log
+-- PHP Version: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `msg_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`message_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `messages`
@@ -88,7 +88,16 @@ INSERT INTO `messages` (`message_id`, `message`, `msg_type`, `user_id`, `msg_tim
 (20, '25e4e1b94239407.03001295.xlsx', 'xlsx', 2, '2020-02-20 05:39:32'),
 (21, '15e4e1bb9df5876.81802107.zip', 'zip', 1, '2020-02-20 05:40:09'),
 (22, 'hello', 'text', 3, '2020-02-20 05:52:32'),
-(23, 'hello', 'text', 1, '2020-02-20 07:58:24');
+(23, 'hello', 'text', 1, '2020-02-20 07:58:24'),
+(24, 'd', 'text', 3, '2020-02-21 05:23:20'),
+(25, 'assets/emoji/emoji4.png', 'emoji', 3, '2020-02-21 05:23:50'),
+(26, 'assets/emoji/emoji4.png', 'emoji', 3, '2020-02-21 05:23:51'),
+(27, 'assets/emoji/emoji4.png', 'emoji', 3, '2020-02-21 05:23:51'),
+(28, 'assets/emoji/emoji4.png', 'emoji', 3, '2020-02-21 05:23:51'),
+(29, 'assets/emoji/emoji4.png', 'emoji', 3, '2020-02-21 05:23:52'),
+(30, 'assets/emoji/emoji4.png', 'emoji', 3, '2020-02-21 05:23:52'),
+(31, 'assets/emoji/emoji4.png', 'emoji', 3, '2020-02-21 05:23:52'),
+(32, 'assets/emoji/emoji14.png', 'emoji', 1, '2020-02-21 05:33:27');
 
 -- --------------------------------------------------------
 
@@ -128,16 +137,9 @@ CREATE TABLE IF NOT EXISTS `user_sessions` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `session_id` varchar(255) NOT NULL,
   `user_id` int(255) NOT NULL,
-  `datatime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user_sessions`
---
-
-INSERT INTO `user_sessions` (`id`, `session_id`, `user_id`, `datatime`) VALUES
-(3, 'fsdie5feu60c1cmbdvitn3rfdh', 1, '2020-02-20 21:36:30');
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -77,7 +77,7 @@ if (isset($_POST["login"])) {
 				if($obj->countRows()){
 					$del_user = "DELETE FROM `user_sessions` where `user_id` = :user_id and `session_id` != :session_id ";
 					$param = array(":session_id"=>$_SESSION["session_id"],":user_id"=>$_SESSION["user_id"]);
-					$obj->normalQuery($del_user,$param);
+					//$obj->normalQuery($del_user,$param);
 				}
 				/*** first of all we will check if the user is inside of the table */
 				$query = "INSERT INTO `user_sessions` (`session_id`,`user_id`) values (:session_id,:user_id)";
