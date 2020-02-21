@@ -40,7 +40,7 @@ $(document).on("change","#upload-files",function(){
             contentType:false,
             processData:false,
             beforeSend:function(){
-                console.log(new FormData($(".chat-form")[0]));
+               // console.log(new FormData($(".chat-form")[0]));
             },
             success:function(feedback){
                // alert(feedback);
@@ -122,7 +122,7 @@ function count_online_users(){
         url:"ajax/count_online_user.php",
         dataType:"JSON",
         success:function(feedback){
-            console.log(feedback);
+           // console.log(feedback);
             count = feedback["count"];
             $(".currently_active_users").html(count);
         }
@@ -130,7 +130,11 @@ function count_online_users(){
 }
 count_online_users();
 window.addEventListener("load",function(){
-    $(".messages").animate({scrollTop:$(".messages")[0].scrollHeight},1000);
+    try{
+        $(".messages").animate({scrollTop:$(".messages")[0].scrollHeight},1000);
+    }catch(e){
+        
+    }
     setInterval(function(){
         show_messages();
         // count_online_users();

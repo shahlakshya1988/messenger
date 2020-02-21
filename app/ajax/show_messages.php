@@ -149,7 +149,7 @@ if (isset($_GET["message"]) && !empty(trim($obj->security($_GET["message"])))) {
             // echo "<br><br>";
         }
     } else {
-        echo "Lets Start Converations With Your Friends !!!!";
+        echo "<p class='clean_message_output'>Lets Start Converations With Your Friends !!!!</p>";
     }
 
     /*** we will fetch messages between those ids clean_message_id and last_message_id */
