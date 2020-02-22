@@ -87,6 +87,7 @@ if (isset($_POST["login"])) {
 				$param = array(":session_id"=>$_SESSION["session_id"],":user_id"=>$_SESSION["user_id"]);
 				$obj->normalQuery($query,$param);
 				/*** inserting this session id into the table */
+				$obj->createSession("loader",1);
 				header("Location: index.php");
 				die();
 				

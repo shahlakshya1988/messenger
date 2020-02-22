@@ -15,7 +15,7 @@ $(document).ready(function(){
                     url:"ajax/send_message.php",
                     data:{send_message:send_message},
                     beforeSend:function(){
-                        console.log(send_message);
+                        //console.log(send_message);
                     },
                     success:function(feedback){
                         //console.log(feedback["status"]);
@@ -50,7 +50,7 @@ $(document).on("change","#upload-files",function(){
                         $(".files-error").hide("medium",function(){
                             $(".files-error").removeClass("show-file-error");
                         });
-                    },6000);
+                    },7000);
                 }else if(feedback=="success"){
                     // alert(feedback);
                     show_messages();
@@ -59,7 +59,7 @@ $(document).on("change","#upload-files",function(){
                         $(".files-success").hide("medium",function(){
                             $(".files-success").removeClass("show-file-success");
                         });
-                    },6000);
+                    },7000);
 
                 }
             }

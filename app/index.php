@@ -13,6 +13,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "components" . DIRECTORY_SEPARATOR 
 </head>
 
 <body>
+<?php if(isset($_SESSION["loader"]) && $_SESSION["loader"] == "1"){ ?>
 <div class="loader-area">
     <div class="loader">
         <div class="loader-item">
@@ -23,6 +24,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "components" . DIRECTORY_SEPARATOR 
     <!-- div.loader -->
 </div>
 <!-- div.loader-area -->
+<?php } unset($_SESSION["loader"]); ?>
     <?php if (isset($_SESSION["user_name_update_success"])) { ?>
         <div class="flash success-flash">
             <span class="remove">&times;</span>
