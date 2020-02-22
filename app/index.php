@@ -13,6 +13,16 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "components" . DIRECTORY_SEPARATOR 
 </head>
 
 <body>
+<div class="loader-area">
+    <div class="loader">
+        <div class="loader-item">
+        
+        </div>
+        <!-- div.loader-item -->
+    </div>
+    <!-- div.loader -->
+</div>
+<!-- div.loader-area -->
     <?php if (isset($_SESSION["user_name_update_success"])) { ?>
         <div class="flash success-flash">
             <span class="remove">&times;</span>

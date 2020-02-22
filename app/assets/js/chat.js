@@ -143,6 +143,11 @@ window.addEventListener("load",function(){
         // show_messages();
          count_online_users();
     },20000);
+
+    setInterval(function(){
+        // show_messages();
+         $(".loader-area").hide();
+    },4000);
 });
 
 $(document).on("click",".delete_messages_a",function(){
